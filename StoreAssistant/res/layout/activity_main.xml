@@ -1,0 +1,88 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+android:id/container_main"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="#ffffff"
+    >
+     <LinearLayout 
+        android:id="@+android:id/container_fragment"
+    	android:layout_width="fill_parent"
+    	android:layout_height="fill_parent"
+    	android:orientation="vertical"
+    	android:layout_above="@android:id/tabhost"
+    	android:clickable="true"
+    	/>
+     
+
+    <TabHost 
+	android:id="@android:id/tabhost"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true" 
+    >
+    <LinearLayout
+    	android:orientation="vertical"
+    	android:layout_width="fill_parent"
+    	android:layout_height="fill_parent">
+    	
+    	<android.support.v4.view.ViewPager
+	        android:id="@+id/viewpager_bottom_main"
+	        android:layout_width="fill_parent"
+	        android:layout_height="60dp"
+	        android:background="#e1e0dc"
+        />
+    	<FrameLayout 
+    		android:id="@android:id/tabcontent"
+    		android:layout_width="fill_parent"
+    		android:layout_height="0.0dip"
+    		android:layout_weight="1.0"/>
+    	<TabWidget 
+    		android:id="@android:id/tabs"
+    		android:layout_width="fill_parent"
+    		android:layout_height="wrap_content"
+    		android:layout_weight="0.0"
+    		android:visibility="gone"/>
+    	<RelativeLayout
+                android:id="@+id/main_layout_bottom"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+    	<RadioGroup
+    		android:id="@+id/radio_group"
+    		android:background="#ffdce1e2"
+    		android:orientation="horizontal"
+    		android:layout_width="fill_parent"
+    		android:layout_height="56dp"
+    		android:gravity="center_vertical"
+    		android:layout_gravity="bottom"
+    		>
+    		<RadioButton
+                android:id="@+id/main_tab_cb_home"
+                android:drawableTop="@drawable/tab_home"
+                android:checked="true" 
+                android:text="首 页"
+                style="@style/MMTabButton"
+                />
+            <RadioButton
+                android:id="@+id/main_tab_cb_nearby"
+                android:drawableTop="@drawable/tab_nearby"
+                android:text="附 近"
+                style="@style/MMTabButton"/>
+            <RadioButton
+                android:id="@+id/main_tab_cb_shop"
+                android:drawableTop="@drawable/tab_shop"
+                android:text="商城"
+                style="@style/MMTabButton"/>
+            <RadioButton
+                android:id="@+id/main_tab_cb_pcenter"
+                android:drawableTop="@drawable/tab_pcenter"
+                android:text="个人中心"
+                style="@style/MMTabButton"
+                />
+    	</RadioGroup>
+    	</RelativeLayout>
+    </LinearLayout>
+</TabHost>
+    
+</RelativeLayout>
