@@ -13,6 +13,7 @@ public class VerticalScrollView extends ScrollView {
 
 	public VerticalScrollView(Context context, AttributeSet attrs) {
 		super(context, attrs);
+		
 		mGestureDetector = new GestureDetector(context, new YScrollDetector());
 	}
 
@@ -28,7 +29,7 @@ public class VerticalScrollView extends ScrollView {
 		public boolean onScroll(MotionEvent e1, MotionEvent e2,
 				float distanceX, float distanceY) {
 			/**
-			 * Èç¹ûÎÒÃÇ¹ö¶¯¸ü½Ó½üË®Æ½·½Ïò,·µ»Øfalse,ÈÃ×ÓÊÓÍ¼À´´¦ÀíËü
+			 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¹ï¿½ï¿½ï¿½ï¿½ï¿½Ó½ï¿½Ë®Æ½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½false,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			 */
 			return (Math.abs(distanceY) > Math.abs(distanceX));
 		}

@@ -23,13 +23,12 @@ import com.storeassistant.task.timertask.TimerTask_toMainActivity;
 import com.storeassistant.util.TimerUtil;
 
 /**
- * 
+ * å¯åŠ¨ç•Œé¢
  * @author codingtony
- * Æô¶¯½çÃæ£ºÒ»°ãÎª¹ã¸æĞû´«Ò³Ãæ
  */
 public class StartActivity extends BaseActivity{
 	
-	public final int msg_showTimer = 1;//ÏÔÊ¾µ¹¼ÆÊ±Êı×Ö
+	public final int msg_showTimer = 1;
 	public int msg_showCount = MyConstants.MSG_SHOW_COUNT_TO_INDEX;
 	public Handler handler_toIndex = null;
 	public Timer myTimer = null;
@@ -50,7 +49,6 @@ public class StartActivity extends BaseActivity{
 		imageLoader.displayImage(ImageUrl.IMAGE_START_URL, startImageView, builder2.build(), new StartImageIistener());
 		Log.i("StartActivity", "StartActivity onCrate end");
 		
-		//µ¹¼ÆÊ±3Ãë£¬½øÈëÖ÷Ò³23
 		myTimer = TimerUtil.getTimer("toIndex");
 		TimerUtil.schedule(myTimer, new TimerTask_toMainActivity(this), 0, 1000);
 		
@@ -64,7 +62,7 @@ public class StartActivity extends BaseActivity{
 				switch (msg.what) {
 				case msg_showTimer:
 					TextView textViewShowTimer = (TextView)findViewById(R.id.textView_showTimerToIndex);
-					textViewShowTimer.setText("µ¹¼ÆÊ±"+msg_showCount+"Ãë");
+					textViewShowTimer.setText("å€’è®¡æ—¶"+msg_showCount+"ç§’");
 					msg_showCount --;
 					break;
 

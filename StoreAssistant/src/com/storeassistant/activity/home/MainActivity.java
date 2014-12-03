@@ -23,6 +23,8 @@ import android.widget.ImageView.ScaleType;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.Toast;
 
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.storeassistant.R;
 import com.storeassistant.activity.carbreakrules.CarBreakRulesActivity;
 import com.storeassistant.activity.fragment.ViewPagerFragment;
@@ -31,10 +33,10 @@ import com.storeassistant.activity.home.fragment.FragmentMall;
 import com.storeassistant.activity.home.fragment.FragmentNearBy;
 import com.storeassistant.activity.home.fragment.FragmentPcenter;
 import com.storeassistant.appInfo.MyConstants;
+import com.storeassistant.component.ViewPagerComponent;
 import com.storeassistant.util.AsyImageLoaderNoParams;
 import com.storeassistant.util.CallbackImplNoParams;
 import com.storeassistant.util.KuangUtils;
-import com.storeassistant.util.ViewPagerComponent;
 
 public class MainActivity extends FragmentActivity implements OnClickListener{
 
@@ -70,7 +72,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener{
 		vpc = new ViewPagerComponent(containerViewPager, getViewList(), false, true,
 				false, 3000, 3000);
 		
-        //Ä¬ÈÏ¼ÓÔØÖ÷Ò³
+        //Ä¬ï¿½Ï¼ï¿½ï¿½ï¿½ï¿½ï¿½Ò³
         addFragment(R.id.main_tab_cb_home);
         
         
@@ -171,8 +173,12 @@ public class MainActivity extends FragmentActivity implements OnClickListener{
 			LayoutParams param = new LayoutParams(720, 160);
 			iv.setScaleType(ScaleType.FIT_XY);
 			iv.setLayoutParams(param);
-			CallbackImplNoParams cinp=new CallbackImplNoParams(iv);
-			iv.setImageBitmap(new AsyImageLoaderNoParams().loadDrawable(url, cinp,2));
+//			CallbackImplNoParams cinp=new CallbackImplNoParams(iv);
+//			iv.setImageBitmap(new AsyImageLoaderNoParams().loadDrawable(url, cinp,2));
+//			viewList.add(iv);
+			ImageLoader imageLoader = ImageLoader.getInstance();
+			imageLoader.init(new ImageLoaderConfiguration.Builder(this).build());
+			imageLoader.displayImage(url, iv);
 			viewList.add(iv);
 		}
 		return viewList;

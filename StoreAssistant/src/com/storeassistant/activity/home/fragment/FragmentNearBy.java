@@ -16,9 +16,9 @@ import android.widget.ImageView.ScaleType;
 
 import com.storeassistant.R;
 import com.storeassistant.activity.home.MainActivity;
+import com.storeassistant.component.ViewPagerComponent;
 import com.storeassistant.util.AsyImageLoaderNoParams;
 import com.storeassistant.util.CallbackImplNoParams;
-import com.storeassistant.util.ViewPagerComponent;
 
 public class FragmentNearBy extends Fragment {
 	ViewPagerComponent vpc = null;

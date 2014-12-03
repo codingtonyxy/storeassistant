@@ -26,13 +26,16 @@ import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.Toast;
 
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.nostra13.universalimageloader.core.assist.ImageSize;
 import com.storeassistant.R;
 import com.storeassistant.adapter.ViewPagerAdapter;
 import com.storeassistant.appInfo.MyConstants;
+import com.storeassistant.component.ViewPagerComponent;
 import com.storeassistant.util.AsyImageLoaderNoParams;
 import com.storeassistant.util.CallbackImplNoParams;
 import com.storeassistant.util.TimerUtil;
-import com.storeassistant.util.ViewPagerComponent;
 
 public class FragmentMain extends Fragment {
 	
@@ -157,8 +160,13 @@ public class FragmentMain extends Fragment {
 								LayoutParams param = new LayoutParams(720, 160);
 								iv.setScaleType(ScaleType.FIT_XY);
 								iv.setLayoutParams(param);
-								CallbackImplNoParams cinp=new CallbackImplNoParams(iv);
-								iv.setImageBitmap(loader.loadDrawable(url, cinp,2));
+								//start替换图片加载代码
+//								CallbackImplNoParams cinp=new CallbackImplNoParams(iv);
+//								iv.setImageBitmap(loader.loadDrawable(url, cinp,2));
+								//end
+								ImageLoader imageLoader = ImageLoader.getInstance();
+								imageLoader.init(new ImageLoaderConfiguration.Builder(getActivity()).build());
+								imageLoader.displayImage(url, iv);
 								viewPagerViews.add(iv);
 								
 								//СԲȦ

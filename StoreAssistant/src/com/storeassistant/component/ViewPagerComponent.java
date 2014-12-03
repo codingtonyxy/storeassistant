@@ -1,8 +1,10 @@
-package com.storeassistant.util;
+package com.storeassistant.component;
 
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
+
+import com.storeassistant.util.TimerUtil;
 
 import android.os.Handler;
 import android.os.Message;
@@ -14,15 +16,15 @@ import android.view.ViewGroup;
 public class ViewPagerComponent {
 	
 	private List<View> viewList = null;
-	private boolean isShowDot = true;//ÊÇ·ñÏÔÊ¾µã
-	private boolean isAutoPage = true;//ÊÇ·ñ×Ô¶¯·­Ò³
-	private boolean isLoopEndLess = true;//ÊÇ·ñÎÞÏÞÑ­»·
+	private boolean isShowDot = true;//ï¿½Ç·ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½
+	private boolean isAutoPage = true;//ï¿½Ç·ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½Ò³
+	private boolean isLoopEndLess = true;//ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½Ñ­ï¿½ï¿½
 	private int currentPagerIndex = 0;
 	private ViewPager viewPager = null;
 	private Timer timer = null;
 	private TimerTask autoPagerTask = null;
 	private Handler handler = null;
-	private final int HANDLER_MSG_PAGE = 1;//×Ô¶¯·­Ò³ÏûÏ¢
+	private final int HANDLER_MSG_PAGE = 1;//ï¿½Ô¶ï¿½ï¿½ï¿½Ò³ï¿½ï¿½Ï¢
 	private long pagerDelayTime = 4000;
 	private long pagerTime = 4000;
 	
@@ -74,7 +76,7 @@ public class ViewPagerComponent {
 	class ViewPagerHandler extends Handler {
 		@Override
 		public void handleMessage(Message msg) {
-			if(msg.what == HANDLER_MSG_PAGE){//×Ô¶¯·­Ò³
+			if(msg.what == HANDLER_MSG_PAGE){//ï¿½Ô¶ï¿½ï¿½ï¿½Ò³
 				viewPager.setCurrentItem(currentPagerIndex, true);
 			}
 		}
@@ -102,7 +104,7 @@ class ViewPageAdapter extends PagerAdapter{
 			return 0;
 		}
 		int count = viewList.size();
-		if(count <= 3){//´Ë´¦ÎÞÏÞÑ­»·¿ÉÄÜ»á³öÎÊÌâ£¨³õÊ¼»¯£¬Ïú»Ù³ö´í£©£¬ËùÒÔÏÞÖÆÑ­»·´ÎÊý
+		if(count <= 3){//ï¿½Ë´ï¿½ï¿½ï¿½ï¿½ï¿½Ñ­ï¿½ï¿½ï¿½ï¿½ï¿½Ü»ï¿½ï¿½ï¿½ï¿½ï¿½â£¨ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ù³ï¿½ï¿½?ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			return count;
 		}
 		if(this.isLoopEndLess){
@@ -137,7 +139,7 @@ class ViewPageAdapter extends PagerAdapter{
 	@Override
 	public void destroyItem(View container, int position, Object object) {
 		int count = viewList.size();
-		if(count <= 3){//Ð¡ÓÚ3¸öÍ¼Æ¬µÄÊ±ºò²»ÎÞÏÞÑ­»·£¬Ò²²»½øÐÐÏú»Ù
+		if(count <= 3){//Ð¡ï¿½ï¿½3ï¿½ï¿½Í¼Æ¬ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ­ï¿½ï¿½ï¿½ï¿½Ò²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			return;
 		}
 		int index = position % count;
