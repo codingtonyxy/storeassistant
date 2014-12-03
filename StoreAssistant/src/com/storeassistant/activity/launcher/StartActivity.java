@@ -50,7 +50,7 @@ public class StartActivity extends BaseActivity{
 		imageLoader.displayImage(ImageUrl.IMAGE_START_URL, startImageView, builder2.build(), new StartImageIistener());
 		Log.i("StartActivity", "StartActivity onCrate end");
 		
-		//倒计时3秒，进入主页2
+		//倒计时3秒，进入主页23
 		myTimer = TimerUtil.getTimer("toIndex");
 		TimerUtil.schedule(myTimer, new TimerTask_toMainActivity(this), 0, 1000);
 		
