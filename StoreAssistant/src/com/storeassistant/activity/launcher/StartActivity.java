@@ -10,10 +10,7 @@ import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
-import com.nostra13.universalimageloader.core.ImageLoaderConfiguration.Builder;
 import com.storeassistant.R;
 import com.storeassistant.activity.base.BaseActivity;
 import com.storeassistant.appInfo.ImageUrl;
@@ -28,7 +25,7 @@ import com.storeassistant.util.TimerUtil;
  */
 public class StartActivity extends BaseActivity{
 	
-	public final int msg_showTimer = 1;
+	public final int what_msg_showTimer = 1;
 	public int msg_showCount = MyConstants.MSG_SHOW_COUNT_TO_INDEX;
 	public Handler handler_toIndex = null;
 	public Timer myTimer = null;
@@ -38,30 +35,24 @@ public class StartActivity extends BaseActivity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_launcher);
 		
-		ImageLoader imageLoader = ImageLoader.getInstance();
-		Builder builder = new ImageLoaderConfiguration.Builder(this);
-		builder.diskCacheSize(10*1024*1024);
-		imageLoader.init(builder.build());
-		
-		com.nostra13.universalimageloader.core.DisplayImageOptions.Builder builder2 = new DisplayImageOptions.Builder();
-		builder2.cacheOnDisk(true);
+		//初始化图片加载器
+		ImageLoader imageLoader = MyConstants.getImageLoader_default(this);
 		ImageView startImageView = (ImageView)findViewById(R.id.img_start);
-		imageLoader.displayImage(ImageUrl.IMAGE_START_URL, startImageView, builder2.build(), new StartImageIistener());
+		imageLoader.displayImage(ImageUrl.IMAGE_START_URL, startImageView, new StartImageIistener());
 		Log.i("StartActivity", "StartActivity onCrate end");
 		
-		myTimer = TimerUtil.getTimer("toIndex");
-		TimerUtil.schedule(myTimer, new TimerTask_toMainActivity(this), 0, 1000);
-		
 		initHander();
+		
+		myTimer = TimerUtil.getTimer("toIndex");
 	}
 
 	private void initHander() {
 		Looper looper = this.getMainLooper();
+		final TextView textViewShowTimer = (TextView)findViewById(R.id.textView_showTimerToIndex);
 		handler_toIndex = new Handler(looper){
 			public void dispatchMessage(Message msg){
 				switch (msg.what) {
-				case msg_showTimer:
-					TextView textViewShowTimer = (TextView)findViewById(R.id.textView_showTimerToIndex);
+				case what_msg_showTimer:
 					textViewShowTimer.setText("倒计时"+msg_showCount+"秒");
 					msg_showCount --;
 					break;
@@ -71,8 +62,19 @@ public class StartActivity extends BaseActivity{
 				}
 			};
 		};
-		
-		
+	}
+	
+	@Override
+	protected void onResume() {
+		super.onResume();
+		TimerUtil.schedule(myTimer, new TimerTask_toMainActivity(this), 1000, 1000);
+	}
+	
+	@Override
+	protected void onStop() {
+		super.onStop();
+		myTimer.cancel();
+		handler_toIndex.removeMessages(what_msg_showTimer);
 	}
 	
 	

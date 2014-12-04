@@ -11,17 +11,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.ImageView.ScaleType;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.storeassistant.R;
 import com.storeassistant.activity.home.MainActivity;
+import com.storeassistant.appInfo.MyConstants;
 import com.storeassistant.component.ViewPagerComponent;
-import com.storeassistant.util.AsyImageLoaderNoParams;
-import com.storeassistant.util.CallbackImplNoParams;
 
 public class FragmentNearBy extends Fragment {
 	ViewPagerComponent vpc = null;
+	
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.fragment_nearby, container, false);
@@ -29,8 +30,10 @@ public class FragmentNearBy extends Fragment {
 		textView.setText("FragmentNearBy");
 		
 		ViewPager containerViewPager = (ViewPager)view.findViewById(R.id.viewpager_nearby);
-		vpc = new ViewPagerComponent(containerViewPager, getViewList(), false, true,
+		LinearLayout dotContainer = (LinearLayout)view.findViewById(R.id.scroll_point_container_nearby);
+		vpc = new ViewPagerComponent(containerViewPager, dotContainer, getViewList(), false, true,
 				false, 3000, 3000);
+		vpc.startPager(true);
 		return view;
 	}
 	
@@ -42,9 +45,6 @@ public class FragmentNearBy extends Fragment {
 	@Override
 	public void onStart() {
 		super.onStart();
-		if(vpc != null){
-			vpc.startPager(true);
-		}
 	}
 	
 	@Override
@@ -61,8 +61,7 @@ public class FragmentNearBy extends Fragment {
 			LayoutParams param = new LayoutParams(720, 160);
 			iv.setScaleType(ScaleType.FIT_XY);
 			iv.setLayoutParams(param);
-			CallbackImplNoParams cinp=new CallbackImplNoParams(iv);
-			iv.setImageBitmap(new AsyImageLoaderNoParams().loadDrawable(url, cinp,2));
+			MyConstants.getImageLoader_default(getActivity()).displayImage(url, iv);
 			viewList.add(iv);
 		}
 		return viewList;

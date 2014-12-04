@@ -32,7 +32,7 @@
 		
 	</RelativeLayout>
 	
-    <com.storeassistant.view.VerticalScrollView
+    <ScrollView
         android:id="@+id/scrollView_tools"
         android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
@@ -155,7 +155,7 @@
           </LinearLayout>
           
           <LinearLayout
-              android:id="@+id/LL1"
+              android:id="@+id/LL0"
               android:layout_width="fill_parent"
               android:layout_height="wrap_content"
               android:orientation="horizontal"
@@ -255,7 +255,7 @@
           </LinearLayout>
           
           <LinearLayout
-              android:id="@+id/LL1"
+              android:id="@+id/LL2"
               android:layout_width="fill_parent"
               android:layout_height="wrap_content"
               android:orientation="horizontal"
@@ -355,7 +355,7 @@
           </LinearLayout>
           
           <LinearLayout
-              android:id="@+id/LL1"
+              android:id="@+id/LL3"
               android:layout_width="fill_parent"
               android:layout_height="wrap_content"
               android:orientation="horizontal"
@@ -457,6 +457,6 @@
          
 
       </LinearLayout>
-    </com.storeassistant.view.VerticalScrollView>
+    </ScrollView>
 
 </LinearLayout>

@@ -29,7 +29,6 @@ public class VerticalScrollView extends ScrollView {
 		public boolean onScroll(MotionEvent e1, MotionEvent e2,
 				float distanceX, float distanceY) {
 			/**
-			 * ������ǹ�����ӽ�ˮƽ����,����false,������ͼ��������
 			 */
 			return (Math.abs(distanceY) > Math.abs(distanceX));
 		}

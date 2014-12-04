@@ -26,7 +26,6 @@ public class ViewPagerAdapter extends PagerAdapter {
 		if(mListViews.size() == 2){
 			return;
 		}
-		Log.i("destroyItem:", postion+"");
 		// TODO Auto-generated method stub
 		View view = mListViews.get(postion % mListViews.size());
 		((ViewPager)container).removeView(view);
@@ -54,7 +53,6 @@ public class ViewPagerAdapter extends PagerAdapter {
 	@Override
 	public Object instantiateItem(View container, int position) {
 		// TODO Auto-generated method stub
-		Log.i("instantiateItem:", position+"");
 		View view = mListViews.get(position % mListViews.size());
 		if(view.getParent()!=null){
 			((ViewGroup)view.getParent()).removeView(view);

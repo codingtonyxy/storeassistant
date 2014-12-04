@@ -11,7 +11,6 @@ public class TimerUtil {
 	}
 	
 	/**
-	 * 安排在指定延迟后执行指定的任务
 	 * @param timer
 	 * @param task
 	 * @param delay
@@ -24,8 +23,6 @@ public class TimerUtil {
 	}
 	
 	/**
-	 * 安排指定的任务从指定的延迟后开始进行重复的固定延迟执行
-	 * 根据前一次执行的实际执行时间来安排每次执行
 	 * @param timer
 	 * @param task
 	 * @param delay
@@ -39,7 +36,6 @@ public class TimerUtil {
 	}
 	
 	/**
-	 * 安排指定的任务在指定的延迟后开始进行重复的固定速率执行。以近似固定的时间间隔（由指定的周期分隔）进行后续执行
 	 * @param task
 	 * @param delay
 	 * @param period

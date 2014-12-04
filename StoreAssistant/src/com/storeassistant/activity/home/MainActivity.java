@@ -18,25 +18,20 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
 import android.view.WindowManager;
 import android.widget.ImageView;
-import android.widget.RadioGroup;
 import android.widget.ImageView.ScaleType;
+import android.widget.LinearLayout;
+import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.Toast;
 
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.storeassistant.R;
 import com.storeassistant.activity.carbreakrules.CarBreakRulesActivity;
-import com.storeassistant.activity.fragment.ViewPagerFragment;
 import com.storeassistant.activity.home.fragment.FragmentMain;
 import com.storeassistant.activity.home.fragment.FragmentMall;
 import com.storeassistant.activity.home.fragment.FragmentNearBy;
 import com.storeassistant.activity.home.fragment.FragmentPcenter;
 import com.storeassistant.appInfo.MyConstants;
 import com.storeassistant.component.ViewPagerComponent;
-import com.storeassistant.util.AsyImageLoaderNoParams;
-import com.storeassistant.util.CallbackImplNoParams;
-import com.storeassistant.util.KuangUtils;
 
 public class MainActivity extends FragmentActivity implements OnClickListener{
 
@@ -64,51 +59,47 @@ public class MainActivity extends FragmentActivity implements OnClickListener{
 		fragmentManager = getSupportFragmentManager();
 		radioGroup = (RadioGroup) findViewById(R.id.radio_group);
         radioGroup.setOnCheckedChangeListener(checkedChangeListener);
-        KuangUtils.initNet(this);
         
 
 		//bottom page
 		ViewPager containerViewPager = (ViewPager)findViewById(R.id.viewpager_bottom_main);
-		vpc = new ViewPagerComponent(containerViewPager, getViewList(), false, true,
-				false, 3000, 3000);
+		LinearLayout dotContainer = (LinearLayout)findViewById(R.id.scroll_point_container_main);
+		vpc = new ViewPagerComponent(containerViewPager, dotContainer, getViewList(), true, true, true, 3000, 3000);
+		vpc.startPager(true);
 		
-        //Ĭ�ϼ�����ҳ
         addFragment(R.id.main_tab_cb_home);
-        
-        
 	}
 	
 	@Override
 	protected void onStart() {
-		// TODO Auto-generated method stub
 		super.onStart();
-		if(vpc!=null){
-			vpc.startPager(true);
-		}
 	}
 	
 	@Override
 	protected void onResume() {
-		// TODO Auto-generated method stub
 		super.onResume();
+		if(vpc != null){
+			vpc.activeTimer();
+		}
 	}
 	
 	@Override
 	protected void onPause() {
-		// TODO Auto-generated method stub
 		super.onPause();
+		if(vpc != null){
+			vpc.inActiveTimer();
+		}
 	}
 	
 	@Override
 	protected void onStop() {
-		// TODO Auto-generated method stub
 		super.onStop();
 	}
 	
 	@Override
 	protected void onDestroy() {
-		// TODO Auto-generated method stub
 		super.onDestroy();
+		
 	}
 	
 	public void addFragment(int vid){
@@ -142,7 +133,6 @@ public class MainActivity extends FragmentActivity implements OnClickListener{
 	private OnCheckedChangeListener checkedChangeListener = new OnCheckedChangeListener() {
 		@Override
 		public void onCheckedChanged(RadioGroup group, int checkedId) {
-			System.out.println(checkedId);
 			addFragment(checkedId);
 		}
 	};
@@ -154,7 +144,6 @@ public class MainActivity extends FragmentActivity implements OnClickListener{
 	
 	
 	public void onClickCenterTab(View v){
-		System.out.println("onClick:"+v);
 		Toast.makeText(v.getContext(), "click:"+v.getId(), 2).show();
 		if(v.getId() == R.id.tab_home_bt1){
 			Intent intent = new Intent(this, CarBreakRulesActivity.class);
@@ -173,12 +162,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener{
 			LayoutParams param = new LayoutParams(720, 160);
 			iv.setScaleType(ScaleType.FIT_XY);
 			iv.setLayoutParams(param);
-//			CallbackImplNoParams cinp=new CallbackImplNoParams(iv);
-//			iv.setImageBitmap(new AsyImageLoaderNoParams().loadDrawable(url, cinp,2));
-//			viewList.add(iv);
-			ImageLoader imageLoader = ImageLoader.getInstance();
-			imageLoader.init(new ImageLoaderConfiguration.Builder(this).build());
-			imageLoader.displayImage(url, iv);
+			MyConstants.getImageLoader_default(this).displayImage(url, iv);
 			viewList.add(iv);
 		}
 		return viewList;

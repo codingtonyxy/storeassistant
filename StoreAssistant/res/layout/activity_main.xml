@@ -26,12 +26,32 @@
     	android:layout_width="fill_parent"
     	android:layout_height="fill_parent">
     	
-    	<android.support.v4.view.ViewPager
-	        android:id="@+id/viewpager_bottom_main"
-	        android:layout_width="fill_parent"
-	        android:layout_height="60dp"
-	        android:background="#e1e0dc"
-        />
+        <RelativeLayout
+		    android:layout_width="fill_parent"
+		    android:layout_height="fill_parent"
+		    android:orientation="vertical"
+		    android:id="@+id/viewpager_container"
+		    android:background="#ffffff"
+		     >
+		  <android.support.v4.view.ViewPager
+		        android:id="@+id/viewpager_bottom_main"
+		        android:layout_width="fill_parent"
+		        android:layout_height="60dp"
+		        android:background="#e1e0dc"
+		        />
+		  <LinearLayout
+		      android:id="@+id/scroll_point_container_main"
+		      android:layout_width="wrap_content"
+		      android:layout_height="wrap_content"
+		      android:layout_alignBottom="@id/viewpager_bottom_main"
+		      android:layout_alignParentRight="true"
+		      android:layout_marginBottom="10dp" 
+		      android:orientation="horizontal"
+		      android:layout_marginRight="20dip">
+			
+		  </LinearLayout>
+	</RelativeLayout>
+	
     	<FrameLayout 
     		android:id="@android:id/tabcontent"
     		android:layout_width="fill_parent"
