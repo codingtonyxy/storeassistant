@@ -21,7 +21,6 @@ public class FragmentMain extends Fragment {
 	private LinearLayout scrollPointContainer;
 	private ViewPager viewPager;
 	private ViewPagerComponent vpc = null;
-	private boolean isAutoPager = true;
 
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -30,8 +29,8 @@ public class FragmentMain extends Fragment {
 		viewPager=(ViewPager)view.findViewById(R.id.main_viewpager);
 		scrollPointContainer = (LinearLayout)view.findViewById(R.id.scroll_point_container);
 		
-		vpc = new ViewPagerComponent(MainActivity.imageList, viewPager, scrollPointContainer, false, true, false, 3000, 3000);
-		vpc.startPager(isAutoPager);
+		vpc = new ViewPagerComponent(MainActivity.imageList, viewPager, scrollPointContainer, true, true, false, 3000, 3000);
+		vpc.startPager();
 		
 		View tab1 = view.findViewById(R.id.tab_home_bt1);
 		View tab2 = view.findViewById(R.id.tab_home_bt2);

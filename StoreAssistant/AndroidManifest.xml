@@ -55,6 +55,12 @@
             android:label="@string/app_name"
             android:screenOrientation="portrait"
              />
+        
+        <activity
+            android:name="com.storeassistant.activity.search.SearchResultActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+             />
        
     </application>
 

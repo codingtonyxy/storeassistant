@@ -10,6 +10,7 @@ import android.os.Message;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
@@ -39,7 +40,7 @@ public class ViewPagerComponent {
 	private long pagerTime = 4000;
 	private boolean isTimerPause = false;
 	private ImageView[] circles;
-	private OnPageChangeListener pageChangerListener = null;
+	private volatile boolean isTouching = false;
 	
 	public ViewPagerComponent(List<String> viewList, ViewPager viewPager, LinearLayout dotContainer, 
 			boolean isShowDot, boolean isAutoPage, boolean isLoopEndLess, long pagerDelayTime, long pagerTime){
@@ -68,34 +69,47 @@ public class ViewPagerComponent {
 		this.autoPagerTask = new AutoTimerTask();
 		
 		//dot
-				if(isShowDot){
-					this.dotContainer = dotContainer;
-					initDot(this.dotContainer, viewList.size());
-					this.viewPager.setOnPageChangeListener(new OnPageChangeListener() {
-						@Override
-						public void onPageSelected(int arg0) {
-							int temIn = arg0%circles.length;
-							for (int i = 0; i < circles.length; i++) 
-							{  
-								circles[temIn].setBackgroundResource(R.drawable.ic_focus);
-								if (temIn != i) {  
-									circles[i].setBackgroundResource(R.drawable.ic_focus_select);  
-								}  
-							}
-						}
-						
-						@Override
-						public void onPageScrolled(int arg0, float arg1, int arg2) {
-							currentPagerIndex = arg0;
-						}
-						
-						@Override
-						public void onPageScrollStateChanged(int arg0) {
-							// TODO Auto-generated method stub
-							
-						}
-					});
+		if(this.isShowDot){
+			this.dotContainer = dotContainer;
+			initDot(this.dotContainer, viewList.size());
+			this.viewPager.setOnPageChangeListener(new OnPageChangeListener() {
+				@Override
+				public void onPageSelected(int arg0) {
+					int temIn = arg0%circles.length;
+					for (int i = 0; i < circles.length; i++) 
+					{  
+						circles[temIn].setBackgroundResource(R.drawable.ic_focus);
+						if (temIn != i) {  
+							circles[i].setBackgroundResource(R.drawable.ic_focus_select);  
+						}  
+					}
 				}
+				
+				@Override
+				public void onPageScrolled(int arg0, float arg1, int arg2) {
+					currentPagerIndex = arg0;
+				}
+				
+				@Override
+				public void onPageScrollStateChanged(int arg0) {
+					// TODO Auto-generated method stub
+					
+				}
+			});
+		}
+		
+		//gesture detect
+		viewPager.setOnTouchListener(new View.OnTouchListener() {
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				if(event.getAction() == MotionEvent.ACTION_DOWN){
+					isTouching = true;
+				}else if(event.getAction() == MotionEvent.ACTION_UP){
+					isTouching = false;
+				}
+				return false;
+			}
+		});
 	}
 	
 	public ViewPagerComponent(ViewPager viewPager, LinearLayout dotContainer, List<View> viewList, 
@@ -142,6 +156,19 @@ public class ViewPagerComponent {
 				}
 			});
 		}
+		
+		//gesture detect
+		viewPager.setOnTouchListener(new View.OnTouchListener() {
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				if(event.getAction() == MotionEvent.ACTION_DOWN){
+					isTouching = true;
+				}else if(event.getAction() == MotionEvent.ACTION_UP){
+					isTouching = false;
+				}
+				return false;
+			}
+		});
 	}
 	
 	
@@ -169,8 +196,8 @@ public class ViewPagerComponent {
 	}
 
 
-	public void startPager(boolean isAutoPager){
-		viewPager.setAdapter(new ViewPageAdapter(viewList, isAutoPage, isLoopEndLess));
+	public void startPager(){
+		viewPager.setAdapter(new ViewPageAdapter(viewList, isLoopEndLess));
 		if(timer == null || handler == null){
 			return;
 		}
@@ -196,7 +223,7 @@ public class ViewPagerComponent {
 	class AutoTimerTask extends TimerTask {
 		@Override
 		public void run() {
-			if (!isTimerPause && handler != null && isAutoPage) {
+			if (!isTimerPause && handler != null && isAutoPage && !isTouching) {
 				Message msg = handler.obtainMessage();
 				msg.what = HANDLER_MSG_PAGE;
 				msg.arg1 = currentPagerIndex++;
@@ -221,12 +248,10 @@ public class ViewPagerComponent {
 class ViewPageAdapter extends PagerAdapter{
 
 	private List<View> viewList = null;
-	private boolean isAutoPage = true;
 	private boolean isLoopEndLess = true;
 	
-	public ViewPageAdapter(List<View> viewList,  boolean isAutoPage, boolean isLoopEndLess){
+	public ViewPageAdapter(List<View> viewList,  boolean isLoopEndLess){
 		this.viewList = viewList;
-		this.isAutoPage = isAutoPage;
 		this.isLoopEndLess = isLoopEndLess;
 	}
 	
@@ -236,14 +261,9 @@ class ViewPageAdapter extends PagerAdapter{
 			return 0;
 		}
 		int count = viewList.size();
-		if(count <= 3){//图片小时3时容易出现bug
-			return count;
-		}
-		if(this.isLoopEndLess){
+		if(this.isLoopEndLess && count > 1){
 			return 1000;
 		}
-		
-		
 		return count;
 	}
 
@@ -269,6 +289,10 @@ class ViewPageAdapter extends PagerAdapter{
 	}
 	
 	@Override
+	/**
+	 * 0123456
+	 * 0101010101
+	 */
 	public void destroyItem(View container, int position, Object object) {
 		int count = viewList.size();
 		if(count <= 3){

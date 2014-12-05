@@ -3,12 +3,52 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
      >
+     
+    <RelativeLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffa7a7a7"
+        
+        >
+        <RelativeLayout android:id="@+id/search_box_main"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:background="@drawable/search_location"
+	        android:gravity="center"
+	        android:focusable="true" 
+			android:focusableInTouchMode="true"
+        >
+
+        <EditText
+            android:id="@+id/edit_text_search_box_main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:hint="请输入关键字"
+            android:paddingLeft="5dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginLeft="15dp"
+            android:singleLine="true" />
+        
+        </RelativeLayout>
+        
+       <ImageView android:id="@+id/search_btn_main"
+            android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:src="@drawable/selector_btn_search"
+	        android:layout_alignRight="@id/search_box_main"
+	        android:onClick="search"
+	        />
+        
+    </RelativeLayout>
+     
     <RelativeLayout
 		    android:layout_width="fill_parent"
 		    android:layout_height="fill_parent"
 		    android:orientation="vertical"
 		    android:id="@+id/viewpager_container"
 		    android:background="#ffffff"
+		    android:layout_gravity="center"
 		     >
 		     
 		  <android.support.v4.view.ViewPager
@@ -20,10 +60,10 @@
 		
 		  <LinearLayout
 		      android:id="@+id/scroll_point_container"
-		      android:layout_width="wrap_content"
+		      android:layout_width="match_parent"
 		      android:layout_height="wrap_content"
+		      android:gravity="center"
 		      android:layout_alignBottom="@id/main_viewpager"
-		      android:layout_alignParentRight="true"
 		      android:layout_marginBottom="10dp" 
 		      android:orientation="horizontal"
 		      android:layout_marginRight="20dip">
@@ -454,8 +494,6 @@
               </LinearLayout>
           </LinearLayout>
           
-         
-
       </LinearLayout>
     </ScrollView>
 

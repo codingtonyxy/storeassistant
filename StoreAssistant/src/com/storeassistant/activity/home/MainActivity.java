@@ -2,24 +2,21 @@ package com.storeassistant.activity.home;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.ViewGroup.LayoutParams;
 import android.view.WindowManager;
-import android.widget.ImageView;
-import android.widget.ImageView.ScaleType;
-import android.widget.LinearLayout;
+import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.Toast;
@@ -30,16 +27,16 @@ import com.storeassistant.activity.home.fragment.FragmentMain;
 import com.storeassistant.activity.home.fragment.FragmentMall;
 import com.storeassistant.activity.home.fragment.FragmentNearBy;
 import com.storeassistant.activity.home.fragment.FragmentPcenter;
+import com.storeassistant.activity.search.SearchResultActivity;
 import com.storeassistant.appInfo.MyConstants;
-import com.storeassistant.component.ViewPagerComponent;
 
 public class MainActivity extends FragmentActivity implements OnClickListener{
 
+	public static final String EXTRA_NAME_SEARCH_TEXT = "searchText";
 	private FragmentManager fragmentManager = null;
 	private RadioGroup radioGroup = null;
 	private HashMap<Integer, Fragment> fragmentCache = new HashMap<Integer, Fragment>(4);
 	public static ArrayList<String> imageList = new ArrayList<String>();
-	ViewPagerComponent vpc = null;
 	
 	static{
 		imageList.add(MyConstants.URL_RES+"/image/hp00.png");
@@ -59,13 +56,6 @@ public class MainActivity extends FragmentActivity implements OnClickListener{
 		fragmentManager = getSupportFragmentManager();
 		radioGroup = (RadioGroup) findViewById(R.id.radio_group);
         radioGroup.setOnCheckedChangeListener(checkedChangeListener);
-        
-
-		//bottom page
-		ViewPager containerViewPager = (ViewPager)findViewById(R.id.viewpager_bottom_main);
-		LinearLayout dotContainer = (LinearLayout)findViewById(R.id.scroll_point_container_main);
-		vpc = new ViewPagerComponent(containerViewPager, dotContainer, getViewList(), true, true, true, 3000, 3000);
-		vpc.startPager(true);
 		
         addFragment(R.id.main_tab_cb_home);
 	}
@@ -78,17 +68,11 @@ public class MainActivity extends FragmentActivity implements OnClickListener{
 	@Override
 	protected void onResume() {
 		super.onResume();
-		if(vpc != null){
-			vpc.activeTimer();
-		}
 	}
 	
 	@Override
 	protected void onPause() {
 		super.onPause();
-		if(vpc != null){
-			vpc.inActiveTimer();
-		}
 	}
 	
 	@Override
@@ -148,27 +132,31 @@ public class MainActivity extends FragmentActivity implements OnClickListener{
 		if(v.getId() == R.id.tab_home_bt1){
 			Intent intent = new Intent(this, CarBreakRulesActivity.class);
 			startActivity(intent);
+		}else if(v.getId() == R.id.tab_home_bt2){
+			AlertDialog.Builder builder = new AlertDialog.Builder(this);
+			builder.setMessage("确认点击?").setPositiveButton("确认", new DialogInterface.OnClickListener() {
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					Intent intent = new Intent(getBaseContext(), CarBreakRulesActivity.class);
+					startActivity(intent);
+				}
+			}).setNegativeButton("取消", new DialogInterface.OnClickListener() {
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+				}
+			});
+			
+			builder.create().show();
 		}
+	}
+	
+	public void search(View view){
+		EditText searchText = (EditText)findViewById(R.id.edit_text_search_box_main);
+		String text = searchText.getText().toString();
+		Intent intent = new Intent(this, SearchResultActivity.class);
+		intent.putExtra(EXTRA_NAME_SEARCH_TEXT, text);
+		startActivity(intent);
 	}
 		
-	
-	
-	public List<View> getViewList(){
-		ArrayList<View> viewList = new ArrayList<View>();
-		int len = imageList.size();
-		for(int i=0;i<len;i++){
-			String url = imageList.get(i);
-			ImageView iv=new ImageView(this);
-			LayoutParams param = new LayoutParams(720, 160);
-			iv.setScaleType(ScaleType.FIT_XY);
-			iv.setLayoutParams(param);
-			MyConstants.getImageLoader_default(this).displayImage(url, iv);
-			viewList.add(iv);
-		}
-		return viewList;
-	}
-
-
-
 
 }

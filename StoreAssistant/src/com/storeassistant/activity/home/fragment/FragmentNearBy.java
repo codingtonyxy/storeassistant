@@ -33,7 +33,7 @@ public class FragmentNearBy extends Fragment {
 		LinearLayout dotContainer = (LinearLayout)view.findViewById(R.id.scroll_point_container_nearby);
 		vpc = new ViewPagerComponent(containerViewPager, dotContainer, getViewList(), false, true,
 				false, 3000, 3000);
-		vpc.startPager(true);
+		vpc.startPager();
 		return view;
 	}
 	
