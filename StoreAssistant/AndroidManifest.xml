@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="8"
+        android:minSdkVersion="11"
         android:targetSdkVersion="19" />
     
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -58,6 +58,12 @@
         
         <activity
             android:name="com.storeassistant.activity.search.SearchResultActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+             />
+        
+        <activity
+            android:name="com.storeassistant.activity.ChooseMarketActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
              />

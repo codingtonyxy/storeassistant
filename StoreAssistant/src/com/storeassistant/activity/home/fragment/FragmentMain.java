@@ -11,9 +11,11 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.storeassistant.R;
 import com.storeassistant.activity.home.MainActivity;
+import com.storeassistant.appInfo.MyConstants;
 import com.storeassistant.component.ViewPagerComponent;
 
 public class FragmentMain extends Fragment {
@@ -31,6 +33,10 @@ public class FragmentMain extends Fragment {
 		
 		vpc = new ViewPagerComponent(MainActivity.imageList, viewPager, scrollPointContainer, true, true, false, 3000, 3000);
 		vpc.startPager();
+		
+		//获取市场名称
+		TextView marketNameTv = (TextView)view.findViewById(R.id.textview_market_name_fragment_main);
+		marketNameTv.setText(MyConstants.MARKET_NAME == null ? "荷花池" : MyConstants.MARKET_NAME);
 		
 		View tab1 = view.findViewById(R.id.tab_home_bt1);
 		View tab2 = view.findViewById(R.id.tab_home_bt2);

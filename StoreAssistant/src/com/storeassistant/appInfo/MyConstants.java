@@ -9,7 +9,7 @@ import com.nostra13.universalimageloader.core.ImageLoaderConfiguration.Builder;
 import com.storeassistant.R;
 
 public class MyConstants {
-	
+	public static String MARKET_NAME = null;
 	//图片加载器
 	private static ImageLoader imageLoader = null;
 	private static DisplayImageOptions displayImageOption_default = null;

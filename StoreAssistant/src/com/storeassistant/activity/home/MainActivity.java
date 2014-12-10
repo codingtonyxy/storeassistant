@@ -2,7 +2,6 @@ package com.storeassistant.activity.home;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -19,9 +18,8 @@ import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
-import android.widget.Toast;
-
 import com.storeassistant.R;
+import com.storeassistant.activity.ChooseMarketActivity;
 import com.storeassistant.activity.carbreakrules.CarBreakRulesActivity;
 import com.storeassistant.activity.home.fragment.FragmentMain;
 import com.storeassistant.activity.home.fragment.FragmentMall;
@@ -128,7 +126,6 @@ public class MainActivity extends FragmentActivity implements OnClickListener{
 	
 	
 	public void onClickCenterTab(View v){
-		Toast.makeText(v.getContext(), "click:"+v.getId(), 2).show();
 		if(v.getId() == R.id.tab_home_bt1){
 			Intent intent = new Intent(this, CarBreakRulesActivity.class);
 			startActivity(intent);
@@ -151,10 +148,15 @@ public class MainActivity extends FragmentActivity implements OnClickListener{
 	}
 	
 	public void search(View view){
-		EditText searchText = (EditText)findViewById(R.id.edit_text_search_box_main);
+		EditText searchText = (EditText)findViewById(R.id.edit_text_search_box);
 		String text = searchText.getText().toString();
 		Intent intent = new Intent(this, SearchResultActivity.class);
 		intent.putExtra(EXTRA_NAME_SEARCH_TEXT, text);
+		startActivity(intent);
+	}
+	
+	public void toChooseMarket(View view){
+		Intent intent = new Intent(this, ChooseMarketActivity.class);
 		startActivity(intent);
 	}
 		
