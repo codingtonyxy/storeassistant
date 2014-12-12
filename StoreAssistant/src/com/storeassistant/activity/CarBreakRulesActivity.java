@@ -1,4 +1,4 @@
-package com.storeassistant.activity.carbreakrules;
+package com.storeassistant.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,9 +9,8 @@ import com.storeassistant.activity.base.BaseActivity;
 import com.storeassistant.activity.home.MainActivity;
 
 /**
- * 
  * @author codingtony
- * 查询汽车违章
+ * car break rules query
  */
 public class CarBreakRulesActivity extends BaseActivity{
 
@@ -24,7 +23,7 @@ public class CarBreakRulesActivity extends BaseActivity{
 
 
 /**
- * 返回到主页
+ * back to main
  * @param view
  */
 	public void back(View view){

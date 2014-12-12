@@ -1,9 +1,7 @@
 package com.storeassistant.net;
 
 /**
- * ÍøÂç½Ó¿Ú
  * @author Administrator
- *
  */
 public class NetApi {
 	

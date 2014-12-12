@@ -17,8 +17,8 @@ import android.widget.TextView;
 
 import com.storeassistant.R;
 import com.storeassistant.activity.home.MainActivity;
-import com.storeassistant.appInfo.MyConstants;
 import com.storeassistant.component.ViewPagerComponent;
+import com.storeassistant.util.MyImageLoader;
 
 public class FragmentNearBy extends Fragment {
 	ViewPagerComponent vpc = null;
@@ -32,7 +32,7 @@ public class FragmentNearBy extends Fragment {
 		ViewPager containerViewPager = (ViewPager)view.findViewById(R.id.viewpager_nearby);
 		LinearLayout dotContainer = (LinearLayout)view.findViewById(R.id.scroll_point_container_nearby);
 		vpc = new ViewPagerComponent(containerViewPager, dotContainer, getViewList(), false, true,
-				false, 3000, 3000);
+				false, 3000, 3000, true);
 		vpc.startPager();
 		return view;
 	}
@@ -61,7 +61,7 @@ public class FragmentNearBy extends Fragment {
 			LayoutParams param = new LayoutParams(720, 160);
 			iv.setScaleType(ScaleType.FIT_XY);
 			iv.setLayoutParams(param);
-			MyConstants.getImageLoader_default(getActivity()).displayImage(url, iv);
+			MyImageLoader.getImageLoader(getActivity()).displayImage(url, iv);
 			viewList.add(iv);
 		}
 		return viewList;

@@ -10,9 +10,6 @@
     
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-	<uses-permission android:name="android.permission.READ_CONTACTS" /> 
-	<uses-permission android:name="android.permission.WRITE_CONTACTS" />
-	<uses-permission android:name="android.permission.GET_TASKS"/>
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 	<uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
 	
@@ -32,7 +29,7 @@
         
         <!-- 启动界面：一般为广告宣传界面 -->
         <activity
-            android:name="com.storeassistant.activity.launcher.StartActivity"
+            android:name="com.storeassistant.activity.StartActivity"
             android:label="@string/app_name"
             android:noHistory="true"
             android:screenOrientation="portrait"
@@ -51,19 +48,25 @@
              />
         
         <activity
-            android:name="com.storeassistant.activity.carbreakrules.CarBreakRulesActivity"
+            android:name="com.storeassistant.activity.CarBreakRulesActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
              />
         
         <activity
-            android:name="com.storeassistant.activity.search.SearchResultActivity"
+            android:name="com.storeassistant.activity.SearchResultActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
              />
         
         <activity
             android:name="com.storeassistant.activity.ChooseMarketActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+             />
+        
+        <activity
+            android:name="com.storeassistant.activity.user.UserInfoActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
              />

@@ -1,0 +1,47 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ffffff"
+     android:orientation="vertical"
+    >
+    
+    <RelativeLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffa7a7a7"
+        
+        >
+        <RelativeLayout android:id="@+id/search_box"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:background="@drawable/search_location"
+	        android:gravity="center"
+	        android:focusable="true" 
+			android:focusableInTouchMode="true"
+        >
+
+        <EditText
+            android:id="@+id/edit_text_search_box"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:hint="请输入关键字"
+            android:paddingLeft="5dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginLeft="15dp"
+            android:singleLine="true" />
+        
+        </RelativeLayout>
+        
+       <ImageView android:id="@+id/search_btn"
+            android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:src="@drawable/icon_search_nor"
+	        android:layout_alignRight="@id/search_box"
+	        />
+        
+    </RelativeLayout>
+
+
+
+</LinearLayout>

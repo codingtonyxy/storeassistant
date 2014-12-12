@@ -19,13 +19,13 @@ import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 import com.storeassistant.R;
+import com.storeassistant.activity.CarBreakRulesActivity;
 import com.storeassistant.activity.ChooseMarketActivity;
-import com.storeassistant.activity.carbreakrules.CarBreakRulesActivity;
+import com.storeassistant.activity.SearchResultActivity;
 import com.storeassistant.activity.home.fragment.FragmentMain;
 import com.storeassistant.activity.home.fragment.FragmentMall;
 import com.storeassistant.activity.home.fragment.FragmentNearBy;
 import com.storeassistant.activity.home.fragment.FragmentPcenter;
-import com.storeassistant.activity.search.SearchResultActivity;
 import com.storeassistant.appInfo.MyConstants;
 
 public class MainActivity extends FragmentActivity implements OnClickListener{
@@ -39,7 +39,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener{
 	static{
 		imageList.add(MyConstants.URL_RES+"/image/hp00.png");
 		imageList.add(MyConstants.URL_RES+"/image/hp01.png");
-		imageList.add(MyConstants.URL_RES+"/image/hp00.png");
+		imageList.add(MyConstants.URL_RES+"/image/hp02.png");
 	}
 	
 	@Override

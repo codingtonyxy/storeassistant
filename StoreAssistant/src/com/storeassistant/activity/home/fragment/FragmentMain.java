@@ -1,5 +1,6 @@
 package com.storeassistant.activity.home.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -11,11 +12,10 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.storeassistant.R;
 import com.storeassistant.activity.home.MainActivity;
-import com.storeassistant.appInfo.MyConstants;
+import com.storeassistant.activity.user.UserInfoActivity;
 import com.storeassistant.component.ViewPagerComponent;
 
 public class FragmentMain extends Fragment {
@@ -31,12 +31,18 @@ public class FragmentMain extends Fragment {
 		viewPager=(ViewPager)view.findViewById(R.id.main_viewpager);
 		scrollPointContainer = (LinearLayout)view.findViewById(R.id.scroll_point_container);
 		
-		vpc = new ViewPagerComponent(MainActivity.imageList, viewPager, scrollPointContainer, true, true, false, 3000, 3000);
+		vpc = new ViewPagerComponent(MainActivity.imageList, viewPager, scrollPointContainer, true, true, true, 3000, 3000, true);
 		vpc.startPager();
 		
-		//获取市场名称
-		TextView marketNameTv = (TextView)view.findViewById(R.id.textview_market_name_fragment_main);
-		marketNameTv.setText(MyConstants.MARKET_NAME == null ? "荷花池" : MyConstants.MARKET_NAME);
+		//点击用户头像进入用户信息界面
+		View containerUserInfo = view.findViewById(R.id.container_user_info_fragment_main);
+		containerUserInfo.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(getActivity(), UserInfoActivity.class);
+				startActivity(intent);
+			}
+		});
 		
 		View tab1 = view.findViewById(R.id.tab_home_bt1);
 		View tab2 = view.findViewById(R.id.tab_home_bt2);

@@ -13,7 +13,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
- * ÍøÂç¹¤¾ßÀà
+ * net util
  * @author Administrator
  *
  */

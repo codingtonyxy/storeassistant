@@ -2,7 +2,10 @@
 <resources>
     
     <drawable name="gray_default">#e1e0dc</drawable>
-
+	<color name="sunflower_yellow">#ffc20e</color>
+	<color name="yellow">#ffd400</color>
+	<color name="green">#45b97c</color>
+	
     <color name="white">#FFFFFF</color>
     <color name="galy">#ff333333</color>
     <color name="transparent">#00000000</color>

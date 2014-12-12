@@ -4,8 +4,8 @@ import android.app.Activity;
 import android.os.Bundle;
 
 /**
- * »ù´¡Àà
- * @author Administrator
+ * base activity
+ * @author codingtony
  *
  */
 public abstract class BaseActivity extends Activity{

@@ -6,8 +6,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Message;
 
+import com.storeassistant.activity.StartActivity;
 import com.storeassistant.activity.home.MainActivity;
-import com.storeassistant.activity.launcher.StartActivity;
 
 /**
  * @author Administrator

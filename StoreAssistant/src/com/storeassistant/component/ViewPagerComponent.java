@@ -15,12 +15,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.ImageView;
+import android.widget.ImageView.ScaleType;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.ImageView.ScaleType;
 
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.storeassistant.R;
-import com.storeassistant.appInfo.MyConstants;
+import com.storeassistant.util.MyImageLoader;
 import com.storeassistant.util.TimerUtil;
 
 public class ViewPagerComponent {
@@ -41,22 +42,17 @@ public class ViewPagerComponent {
 	private boolean isTimerPause = false;
 	private ImageView[] circles;
 	private volatile boolean isTouching = false;
+	private boolean isSaveInDisk = false;
 	
 	public ViewPagerComponent(List<String> viewList, ViewPager viewPager, LinearLayout dotContainer, 
-			boolean isShowDot, boolean isAutoPage, boolean isLoopEndLess, long pagerDelayTime, long pagerTime){
+			boolean isShowDot, boolean isAutoPage, boolean isLoopEndLess, long pagerDelayTime, long pagerTime, boolean isSaveInDisk){
 		//加载图片
 		this.viewList = new ArrayList<View>(viewList.size());
 		int width = viewPager.getWidth();
 		int height = viewPager.getHeight();
 		ImageView iv = null;
-		for (String url : viewList) {
-			iv=new ImageView(viewPager.getContext());
-			LayoutParams param = new LayoutParams(width, height);
-			iv.setScaleType(ScaleType.FIT_XY);
-			iv.setLayoutParams(param);
-			MyConstants.getImageLoader_default(viewPager.getContext()).displayImage(url, iv);
-			this.viewList.add(iv);
-		}
+		DisplayImageOptions options = null;
+		
 		this.viewPager = viewPager;
 		this.isShowDot = isShowDot;
 		this.isAutoPage = isAutoPage;
@@ -67,6 +63,19 @@ public class ViewPagerComponent {
 		this.handler = new ViewPagerHandler();
 		this.timer = TimerUtil.getTimer("ViewPagerComponent timer");
 		this.autoPagerTask = new AutoTimerTask();
+		this.isSaveInDisk = isSaveInDisk;
+		
+		if(isSaveInDisk){
+			options = MyImageLoader.displayImageOption_cache_in_memory_and_disk;
+		}
+		for (String url : viewList) {
+			iv=new ImageView(viewPager.getContext());
+			LayoutParams param = new LayoutParams(width, height);
+			iv.setScaleType(ScaleType.FIT_XY);
+			iv.setLayoutParams(param);
+			MyImageLoader.getImageLoader(viewPager.getContext()).displayImage(url, iv);
+			this.viewList.add(iv);
+		}
 		
 		//dot
 		if(this.isShowDot){
@@ -113,7 +122,7 @@ public class ViewPagerComponent {
 	}
 	
 	public ViewPagerComponent(ViewPager viewPager, LinearLayout dotContainer, List<View> viewList, 
-			boolean isShowDot, boolean isAutoPage, boolean isLoopEndLess, long pagerDelayTime, long pagerTime){
+			boolean isShowDot, boolean isAutoPage, boolean isLoopEndLess, long pagerDelayTime, long pagerTime, boolean isSaveInDisk){
 		
 		this.viewPager = viewPager;
 		this.viewList = viewList;
@@ -126,6 +135,7 @@ public class ViewPagerComponent {
 		this.handler = new ViewPagerHandler();
 		this.timer = TimerUtil.getTimer("ViewPagerComponent timer");
 		this.autoPagerTask = new AutoTimerTask();
+		this.isSaveInDisk = isSaveInDisk;
 		
 		//dot
 		if(isShowDot){

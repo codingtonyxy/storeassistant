@@ -1,4 +1,4 @@
-package com.storeassistant.activity.search;
+package com.storeassistant.activity;
 
 import android.content.Intent;
 import android.os.Bundle;

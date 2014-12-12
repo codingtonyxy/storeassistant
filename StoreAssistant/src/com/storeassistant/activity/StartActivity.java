@@ -1,4 +1,4 @@
-package com.storeassistant.activity.launcher;
+package com.storeassistant.activity;
 
 import java.util.Timer;
 
@@ -6,17 +6,15 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.nostra13.universalimageloader.core.ImageLoader;
 import com.storeassistant.R;
 import com.storeassistant.activity.base.BaseActivity;
 import com.storeassistant.appInfo.ImageUrl;
 import com.storeassistant.appInfo.MyConstants;
-import com.storeassistant.listener.StartImageIistener;
 import com.storeassistant.task.timertask.TimerTask_toMainActivity;
+import com.storeassistant.util.MyImageLoader;
 import com.storeassistant.util.TimerUtil;
 
 /**
@@ -35,11 +33,9 @@ public class StartActivity extends BaseActivity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_launcher);
 		
-		//初始化图片加载器
-		ImageLoader imageLoader = MyConstants.getImageLoader_default(this);
 		ImageView startImageView = (ImageView)findViewById(R.id.img_start);
-		imageLoader.displayImage(ImageUrl.IMAGE_START_URL, startImageView, new StartImageIistener());
-		Log.i("StartActivity", "StartActivity onCrate end");
+		//初始化图片加载器
+		MyImageLoader.displayLatestImageCacheForNoNet(this, ImageUrl.IMAGE_START_URL, startImageView);
 		
 		initHander();
 		
