@@ -12,10 +12,14 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.storeassistant.R;
+import com.storeassistant.activity.ChooseMarketActivity;
 import com.storeassistant.activity.home.MainActivity;
+import com.storeassistant.activity.mail.MailActivity;
 import com.storeassistant.activity.user.UserInfoActivity;
+import com.storeassistant.appInfo.MyConstants;
 import com.storeassistant.component.ViewPagerComponent;
 
 public class FragmentMain extends Fragment {
@@ -34,12 +38,36 @@ public class FragmentMain extends Fragment {
 		vpc = new ViewPagerComponent(MainActivity.imageList, viewPager, scrollPointContainer, true, true, true, 3000, 3000, true);
 		vpc.startPager();
 		
+		//更新市场名称
+		TextView nameTextView = (TextView)view.findViewById(R.id.market_name_fragment_main);
+		nameTextView.setText(MyConstants.MARKET_NAME);
+		
 		//点击用户头像进入用户信息界面
 		View containerUserInfo = view.findViewById(R.id.container_user_info_fragment_main);
 		containerUserInfo.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				Intent intent = new Intent(getActivity(), UserInfoActivity.class);
+				startActivity(intent);
+			}
+		});
+		
+		//点击选择市场
+		View chooseMarket = view.findViewById(R.id.back_to_choose_market);
+		chooseMarket.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(getActivity(), ChooseMarketActivity.class);
+				startActivity(intent);
+			}
+		});
+		
+		//点击邮件
+		View mail = view.findViewById(R.id.mail_fragment_main);
+		mail.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(getActivity(), MailActivity.class);
 				startActivity(intent);
 			}
 		});

@@ -7,113 +7,128 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:background="@drawable/titlebar_bg_nor"
-        android:orientation="horizontal" 
-        >
+        android:orientation="horizontal" >
 
-        <LinearLayout 
+        <LinearLayout
             android:id="@+id/container_user_info_fragment_main"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:clickable="true"
-            >
+            android:clickable="true" >
+
             <com.storeassistant.view.RoundRectImageView
-            android:id="@+id/imageview_head_icon_fragment_main"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:layout_marginLeft="3dp"
-            android:src="@drawable/head" />
+                android:id="@+id/imageview_head_icon_fragment_main"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_marginLeft="3dp"
+                android:src="@drawable/head" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="3dp"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <ProgressBar
+                        android:id="@+id/progressbar_exp_fragment_main"
+                        style="@android:style/Widget.ProgressBar.Horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="10dp"
+                        android:max="1000"
+                        android:progress="200"
+                        android:progressDrawable="@drawable/barcolor_exp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="经验"
+                        android:textColor="@color/green"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <ProgressBar
+                        android:id="@+id/progressbar_gold_fragment_main"
+                        style="@android:style/Widget.ProgressBar.Horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="10dp"
+                        android:layout_marginTop="1dp"
+                        android:max="1000"
+                        android:progress="500" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="财富"
+                        android:textColor="@color/yellow"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="商场精英"
+                    android:textColor="@color/white"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="3dp"
-            android:orientation="vertical" >
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal" >
-
-                <ProgressBar
-                    android:id="@+id/progressbar_exp_fragment_main"
-                    style="@android:style/Widget.ProgressBar.Horizontal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="10dp"
-                    android:max="1000"
-                    android:progress="200"
-                    android:progressDrawable="@drawable/barcolor_exp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="经验"
-                    android:textColor="@color/green"
-                    android:textSize="10sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal" >
-
-                <ProgressBar
-                    android:id="@+id/progressbar_gold_fragment_main"
-                    style="@android:style/Widget.ProgressBar.Horizontal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="10dp"
-                    android:layout_marginTop="1dp"
-                    android:max="1000"
-                    android:progress="500" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="金币"
-                    android:textColor="@color/yellow"
-                    android:textSize="10sp" />
-            </LinearLayout>
+            android:id="@+id/back_to_choose_market"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:gravity="center" >
 
             <TextView
+                android:id="@+id/market_name_fragment_main"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="商场精英"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="成都国际商贸城"
                 android:textColor="@color/white"
-                android:textSize="13sp" />
+                android:textSize="18sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom"
+                android:src="@drawable/arrow_down_home" />
         </LinearLayout>
-        </LinearLayout>
-        
-        <LinearLayout 
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            />
-            
 
-        <Button
-            android:id="@+id/back_to_choose_market"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_gravity="bottom"
-            android:background="#00000000"
-            android:text="成都国际商贸城"
-            android:textColor="@color/white"
-            android:textSize="20sp" 
-            android:onClick="toChooseMarket"
-            />
+        <FrameLayout
+            android:id="@+id/mail_fragment_main"
+            android:layout_width="43dp"
+            android:layout_height="match_parent" >
 
-        <ImageView
-            android:id="@+id/imageview_back_to_choose_market"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_gravity="bottom"
-            android:padding="2dp"
-            android:src="@drawable/arrow_down" />
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/mail_off" />
 
-        
-
-        
+            <TextView
+                android:id="@+id/new_mail_textview_fragment_main"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="17dp"
+                android:background="@drawable/new_mail_icon"
+                android:gravity="center"
+                android:text="2"
+                android:textColor="@color/white"
+                android:visibility="visible" />
+        </FrameLayout>
     </LinearLayout>
 
     <ScrollView

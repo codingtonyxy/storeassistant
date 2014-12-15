@@ -65,15 +65,16 @@ public class ViewPagerComponent {
 		this.autoPagerTask = new AutoTimerTask();
 		this.isSaveInDisk = isSaveInDisk;
 		
-		if(isSaveInDisk){
-			options = MyImageLoader.displayImageOption_cache_in_memory_and_disk;
-		}
 		for (String url : viewList) {
 			iv=new ImageView(viewPager.getContext());
 			LayoutParams param = new LayoutParams(width, height);
 			iv.setScaleType(ScaleType.FIT_XY);
 			iv.setLayoutParams(param);
-			MyImageLoader.getImageLoader(viewPager.getContext()).displayImage(url, iv);
+			if(isSaveInDisk){
+				MyImageLoader.displayLatestImageCacheForNoNet(viewPager.getContext(), url, iv);
+			}else{
+				MyImageLoader.getImageLoader(viewPager.getContext()).displayImage(url, iv);
+			}
 			this.viewList.add(iv);
 		}
 		

@@ -1,14 +1,9 @@
 package com.storeassistant.appInfo;
 
-import android.content.Context;
-
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
-import com.nostra13.universalimageloader.core.ImageLoaderConfiguration.Builder;
 
 public class MyConstants {
-	public static String MARKET_NAME = null;
+	
+	public static String MARKET_NAME = "荷花池市场";
 	
 	
 	public static final String IP_PORT_SERVER = "192.168.2.100:5000";

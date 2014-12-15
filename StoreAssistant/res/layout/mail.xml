@@ -1,11 +1,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+android:id/container_car_break_rules"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="#ffffff"
-    android:orientation="vertical" >
+     android:orientation="vertical"
+    >
 
-    <FrameLayout
+<FrameLayout
         android:id="@+id/back_choose_market"
         android:layout_width="match_parent"
         android:layout_height="54dp"
@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center_horizontal"
-            android:text="车辆违章查询"
+            android:text="邮件"
             android:textColor="@color/white"
             android:textSize="20dp" />
     </FrameLayout>

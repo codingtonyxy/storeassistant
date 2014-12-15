@@ -9,7 +9,7 @@
         android:id="@+id/back_choose_market"
         android:layout_width="match_parent"
         android:layout_height="54dp"
-        android:background="@drawable/btn_titlebar_current"
+        android:background="@drawable/btn_titlebar1"
         android:orientation="horizontal" >
 
         <ImageButton
@@ -37,7 +37,6 @@
         android:orientation="horizontal" >
 
         <LinearLayout
-            android:id="@+id/container_user_info_fragment_main"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"

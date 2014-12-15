@@ -155,10 +155,6 @@ public class MainActivity extends FragmentActivity implements OnClickListener{
 		startActivity(intent);
 	}
 	
-	public void toChooseMarket(View view){
-		Intent intent = new Intent(this, ChooseMarketActivity.class);
-		startActivity(intent);
-	}
 		
 
 }
