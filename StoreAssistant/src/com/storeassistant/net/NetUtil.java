@@ -8,9 +8,9 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
+import com.alibaba.fastjson.JSON;
 
-import org.json.JSONException;
-import org.json.JSONObject;
 
 /**
  * net util
@@ -32,7 +32,8 @@ public class NetUtil {
 		return urlConnection;
 	}
 	
-	public static HashMap<String, Object> get(String url, HashMap<String, Object> param){
+	public static Map get(String url, HashMap<String, Object> param){
+		System.out.println("url:"+url);
 		if(url == null || url.length() <= 0){
 			return new HashMap<String, Object>(0);
 		}
@@ -69,8 +70,9 @@ public class NetUtil {
 			bos = new BufferedOutputStream(baos);
 			bis = new BufferedInputStream(conn.getInputStream());
 			byte[] buffer = new byte[512];
-			while(bis.read(buffer) != -1){
-				bos.write(buffer);
+			int count = 0;
+			while((count = bis.read(buffer)) != -1){
+				bos.write(buffer, 0, count);
 			}
 			bos.flush();
 			byte[] data = baos.toByteArray();
@@ -79,16 +81,22 @@ public class NetUtil {
 			if(content == null || content.length() <= 0){
 				return new HashMap<String, Object>(0);
 			}
-			JSONObject json = new JSONObject(content);
-			return jsonToMap(json);
+			return (Map)JSON.parse(content);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally{
 			conn.disconnect();
 			try {
-				bis.close();
-				baos.close();
-				bos.close();
+				if(bis != null){
+					bis.close();
+				}
+				if(baos != null){
+					baos.close();
+				}
+				if(bos != null){
+					bos.close();
+				}
+				
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -96,35 +104,7 @@ public class NetUtil {
 		return new HashMap<String, Object>(0);
 	}
 	
-	private static HashMap<String, Object> jsonToMap(JSONObject json){
-		if(json == null){
-			return new HashMap<String, Object>(0);
-		}
-		int len = json.length();
-		if(len <= 0){
-			return new HashMap<String, Object>(0);
-		}
-		HashMap<String, Object> ret = new HashMap<String, Object>(len);
-		Iterator iter = json.keys();
-		while(iter.hasNext()){
-			Object o = iter.next();
-			if(o == null){
-				continue;
-			}
-			String  key = (String)o;
-			Object value;
-			try {
-				value = json.get(key);
-			} catch (JSONException e) {
-				e.printStackTrace();
-				ret.put(key, null);
-				continue;
-			}
-			ret.put(key, value);
-		}
-		System.out.println("ret"+ret);
-		return ret;
-	}
+	
 	
 	public static void main(String[] args) {
 		String url = "www.baidu.com";

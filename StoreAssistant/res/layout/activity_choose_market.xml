@@ -1,242 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/market_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
     android:orientation="vertical" >
     
-   <FrameLayout 
-    android:id="@+id/back_choose_market"
-    android:layout_width="match_parent"
-    android:layout_height="54dp"
-    android:orientation="horizontal"
-    android:background="@drawable/btn_titlebar1"
-    >
-    <ImageButton 
-        android:id="@+id/back_image_car_break_rules"
-        android:layout_width="60dp"
-    	android:layout_height="54dp"
-        android:background="@drawable/button_back_normal"
-        android:onClick="back"
-        />
-    <TextView 
-        android:id="@+id/back_title_car_break_rules"
+    <FrameLayout
+        android:id="@+id/back_choose_market"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:background="@drawable/btn_titlebar1"
+        android:orientation="horizontal" >
+
+        <ImageButton
+            android:id="@+id/back_image_car_break_rules"
+            android:layout_width="60dp"
+            android:layout_height="54dp"
+            android:background="@drawable/button_back_normal"
+            android:onClick="back" />
+
+        <TextView
+            android:id="@+id/back_title_car_break_rules"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center_horizontal"
+            android:text="选择市场"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+    </FrameLayout>
+    
+    <HorizontalScrollView 
         android:layout_width="match_parent"
     	android:layout_height="wrap_content"
-        android:text="选择市场"
-        android:textSize="20dp"
-        android:textColor="@color/white"
-        android:layout_gravity="center"
-        android:gravity="center_horizontal"
-        />
-</FrameLayout>
-    
-    <ScrollView android:id="@+id/scrollview_choose_market"
-        android:layout_width="match_parent"
-    	android:layout_height="wrap_content" >
-    	
-        <LinearLayout
+    	android:background="@color/sunflower_yellow"
+    	android:padding="10dp"
+    	android:scrollbars="none"
+        >
+        
+        <LinearLayout 
             android:layout_width="match_parent"
     		android:layout_height="wrap_content"
-    		android:orientation="vertical"
+    		android:orientation="horizontal"
             >
-            <TextView 
-                android:layout_width="match_parent"
+            <Button 
+                android:layout_width="wrap_content"
     			android:layout_height="wrap_content"
     			android:text="成都"
-    			android:textSize="20sp"
     			android:textColor="@color/black"
-    			android:background="#D9D9D9"
-    			android:padding="5dp"
-                />
-            
-            <LinearLayout
-                android:layout_width="match_parent"
-    			android:layout_height="wrap_content"
-    			android:orientation="vertical"
-                 >
-            <LinearLayout 
-                android:layout_width="match_parent"
-    			android:layout_height="wrap_content"
-    			android:orientation="horizontal"
-                >
-                <Button android:id="@+id/btn_market_hhcfzsc_choose_market"
-                android:layout_width="wrap_content"
-    			android:layout_height="wrap_content"
-    			android:gravity="left"
-    			android:text="荷花池服装市场"
     			android:textSize="15sp"
-    			android:textColor="@color/black"
-    			android:paddingLeft="5dp"
-    			android:paddingTop="5dp"
-    			android:paddingBottom="5dp"
-    			android:paddingRight="3dp"
-    			android:background="@color/white"
-    			android:onClick="showMarketDetail"
+    			android:layout_marginRight="10dp"
+    			android:background="@color/sunflower_yellow"
                 />
-                <ImageView 
-                    android:id="@+id/market_name_arrow"
-                    android:layout_width="wrap_content"
-    				android:layout_height="match_parent"
-    				android:src="@drawable/arrow_up_bold"
-    				android:layout_gravity="center_vertical"
-                    />
-            </LinearLayout>
-            
-            <LinearLayout 
-                android:layout_width="match_parent"
-    			android:layout_height="100dp"
-    			android:background="@drawable/bg_market_detail2"
-    			android:orientation="vertical"
-    			android:padding="10dp"
-    			android:visibility="gone"
-    			android:tag="market_detail"
-                >
-                
-                <LinearLayout 
-                android:layout_width="match_parent"
-    			android:layout_height="wrap_content"
-    			android:orientation="horizontal"
-                >
-                <ImageView 
-                    android:layout_width="100dp"
-    				android:layout_height="80dp"
-    				android:src="@drawable/cdhhcsc"
-    				android:scaleType="fitXY"
-    				android:onClick="enterMarket"
-    				android:tag="荷花池服装市场"
-                    />
-                <LinearLayout 
-                    android:layout_width="match_parent"
-    				android:layout_height="80dp"
-    				android:background="@color/white"
-    				android:layout_marginLeft="10dp"
-                    >
-                    <ScrollView 
-                        android:layout_width="match_parent"
-    					android:layout_height="match_parent"
-                        >
-                        <TextView 
-                        android:layout_width="match_parent"
-    					android:layout_height="80dp"
-    					android:padding="5dp"
-    					android:text="成都荷花池批发市场坐落在成都市的北大门，是一个多种经营形式、多种经营方式、多种经营品类、多种管理服务功能和多地区客商并存的大型综合批发市场，其规模、效益均居我国西部集贸市场之首，在全国“百强”集贸市场中位列第七"
-                    	android:textColor="@color/black"
-                    	android:textSize="13sp"
-                    />
-                    </ScrollView>
-                </LinearLayout>
-                </LinearLayout>
-                
-            </LinearLayout>
-            </LinearLayout>
-            
-            <LinearLayout
-            android:layout_width="match_parent"
-    		android:layout_height="wrap_content"
-    		android:orientation="vertical"
-            >
-            <LinearLayout 
-                android:layout_width="match_parent"
-    			android:layout_height="wrap_content"
-    			android:orientation="horizontal"
-                >
-                <Button android:id="@+id/btn_market_hhcfzsc_choose_market"
-                android:layout_width="wrap_content"
-    			android:layout_height="wrap_content"
-    			android:gravity="left"
-    			android:text="成都国际商贸城"
-    			android:textSize="15sp"
-    			android:textColor="@color/black"
-    			android:paddingLeft="5dp"
-    			android:paddingTop="5dp"
-    			android:paddingBottom="5dp"
-    			android:paddingRight="3dp"
-    			android:background="@color/white"
-    			android:onClick="showMarketDetail"
-                />
-                <ImageView 
-                    android:id="@+id/market_name_arrow"
-                    android:layout_width="wrap_content"
-    				android:layout_height="match_parent"
-    				android:src="@drawable/arrow_up_bold"
-    				android:layout_gravity="center_vertical"
-                    />
-            </LinearLayout>
-            
-            <LinearLayout 
-                android:layout_width="match_parent"
-    			android:layout_height="100dp"
-    			android:background="@drawable/bg_market_detail2"
-    			android:orientation="vertical"
-    			android:padding="10dp"
-    			android:visibility="gone"
-    			android:tag="market_detail"
-                >
-                
-                <LinearLayout 
-                android:layout_width="match_parent"
-    			android:layout_height="wrap_content"
-    			android:orientation="horizontal"
-                >
-                <ImageView 
-                    android:layout_width="100dp"
-    				android:layout_height="80dp"
-    				android:src="@drawable/cdgjsmc"
-    				android:scaleType="fitXY"
-    				android:onClick="enterMarket"
-    				android:tag="成都国际商贸城"
-                    />
-                <LinearLayout 
-                    android:layout_width="match_parent"
-    				android:layout_height="80dp"
-    				android:background="@color/white"
-    				android:layout_marginLeft="10dp"
-                    >
-                    <ScrollView 
-                        android:layout_width="match_parent"
-    					android:layout_height="match_parent"
-                        >
-                        <TextView 
-                        android:layout_width="match_parent"
-    					android:layout_height="80dp"
-    					android:padding="5dp"
-                        android:text="成都国际商贸城位于北部新城绕城高速以北，北新干线以东，北临毗河，项目总占地面积2090亩，总建筑面积500万平方米（规模相当于荷花池市场群的12倍），市场群面积360万平方米"
-                    	android:textColor="@color/black"
-                    	android:textSize="13sp"
-                    />
-                    </ScrollView>
-                </LinearLayout>
-                </LinearLayout>
-                
-            </LinearLayout>
-            </LinearLayout>
-           
             <TextView 
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
     			android:layout_height="wrap_content"
     			android:text="南充"
-    			android:textSize="20sp"
     			android:textColor="@color/black"
-    			android:background="#D9D9D9"
-    			android:padding="5dp"
-    			android:layout_marginTop="10dp"
-                />
-            <Button android:id="@+id/btn_market_ncpfzx_choose_market"
-                android:layout_width="match_parent"
-    			android:layout_height="wrap_content"
-    			android:gravity="left"
-    			android:text="南充批发中心"
     			android:textSize="15sp"
-    			android:textColor="@color/black"
-    			android:background="@color/white"
-    			android:padding="10dp"
+    			android:layout_marginRight="10dp"
                 />
-            
+            <TextView 
+                android:layout_width="wrap_content"
+    			android:layout_height="wrap_content"
+    			android:text="遂宁"
+    			android:textColor="@color/black"
+    			android:textSize="15sp"
+    			android:layout_marginRight="10dp"
+                />
+            <TextView 
+                android:layout_width="wrap_content"
+    			android:layout_height="wrap_content"
+    			android:text="巴中"
+    			android:textColor="@color/black"
+    			android:textSize="15sp"
+    			android:layout_marginRight="10dp"
+                />
+            <TextView 
+                android:layout_width="wrap_content"
+    			android:layout_height="wrap_content"
+    			android:text="重庆"
+    			android:textColor="@color/black"
+    			android:textSize="15sp"
+    			android:layout_marginRight="10dp"
+                />
             
         </LinearLayout>
+    </HorizontalScrollView>
+
+    <LinearLayout 
+        android:id="@+id/market_list_container"
+        android:layout_width="match_parent"
+    	android:layout_height="match_parent"
+    	android:orientation="vertical"
+    	android:layout_weight="1"
+        >
         
-    </ScrollView>
-    
+    </LinearLayout>
 
 </LinearLayout>

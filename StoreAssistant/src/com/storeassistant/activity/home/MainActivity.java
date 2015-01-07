@@ -37,9 +37,9 @@ public class MainActivity extends FragmentActivity implements OnClickListener{
 	public static ArrayList<String> imageList = new ArrayList<String>();
 	
 	static{
-		imageList.add(MyConstants.URL_RES+"/image/hp00.png");
-		imageList.add(MyConstants.URL_RES+"/image/hp01.png");
-		imageList.add(MyConstants.URL_RES+"/image/hp02.png");
+		imageList.add(MyConstants.HTTP_URL_RES+"/image/hp00.png");
+		imageList.add(MyConstants.HTTP_URL_RES+"/image/hp01.png");
+		imageList.add(MyConstants.HTTP_URL_RES+"/image/hp02.png");
 	}
 	
 	@Override

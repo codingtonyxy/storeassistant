@@ -7,6 +7,6 @@ package com.storeassistant.appInfo;
  */
 public class ImageUrl {
 	
-	public static final String IMAGE_START_URL = MyConstants.URL_RES + "/image/image_start.png";//启动图片
+	public static final String IMAGE_START_URL = MyConstants.HTTP_URL_RES + "/image/image_start.png";//启动图片
 
 }
