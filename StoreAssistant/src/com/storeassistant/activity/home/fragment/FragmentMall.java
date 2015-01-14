@@ -1,23 +1,29 @@
 package com.storeassistant.activity.home.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.storeassistant.R;
+import com.storeassistant.activity.ChooseMarketActivity;
 
 public class FragmentMall extends Fragment {
 	
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.fragment_mall, container, false);
-		
-		TextView textView = (TextView)view.findViewById(R.id.textView_fragment_mall);
-		textView.setText("FragmentMall222");
-		
+		//点击选择市场
+		View chooseMarket = view.findViewById(R.id.back_to_choose_market);
+		chooseMarket.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(getActivity(), ChooseMarketActivity.class);
+				startActivity(intent);
+			}
+		});
 		return view;
 	}
 	

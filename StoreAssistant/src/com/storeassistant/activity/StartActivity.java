@@ -11,8 +11,8 @@ import android.widget.TextView;
 
 import com.storeassistant.R;
 import com.storeassistant.activity.base.BaseActivity;
-import com.storeassistant.appInfo.ImageUrl;
 import com.storeassistant.appInfo.MyConstants;
+import com.storeassistant.net.NetApi;
 import com.storeassistant.task.timertask.TimerTask_toMainActivity;
 import com.storeassistant.util.MyImageLoader;
 import com.storeassistant.util.TimerUtil;
@@ -35,7 +35,7 @@ public class StartActivity extends BaseActivity{
 		
 		ImageView startImageView = (ImageView)findViewById(R.id.img_start);
 		//初始化图片加载器
-		MyImageLoader.displayLatestImageCacheForNoNet(this, ImageUrl.IMAGE_START_URL, startImageView);
+		MyImageLoader.displayLatestImageCacheForNoNet(this, NetApi.getStartImgName(), startImageView);
 		
 		initHander();
 		

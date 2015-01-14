@@ -29,7 +29,15 @@
             android:text="选择市场"
             android:textColor="@color/white"
             android:textSize="20sp" />
+        <ImageButton
+            android:id="@+id/btn_add_market"
+            android:layout_width="60dp"
+            android:layout_height="54dp"
+            android:background="@drawable/selector_btn_add_market"
+            android:layout_gravity="right"
+            android:onClick="add" />
     </FrameLayout>
+    
     
     <HorizontalScrollView 
         android:layout_width="match_parent"
@@ -40,51 +48,11 @@
         >
         
         <LinearLayout 
+            android:id="@+id/container_market_city_list"
             android:layout_width="match_parent"
     		android:layout_height="wrap_content"
     		android:orientation="horizontal"
             >
-            <Button 
-                android:layout_width="wrap_content"
-    			android:layout_height="wrap_content"
-    			android:text="成都"
-    			android:textColor="@color/black"
-    			android:textSize="15sp"
-    			android:layout_marginRight="10dp"
-    			android:background="@color/sunflower_yellow"
-                />
-            <TextView 
-                android:layout_width="wrap_content"
-    			android:layout_height="wrap_content"
-    			android:text="南充"
-    			android:textColor="@color/black"
-    			android:textSize="15sp"
-    			android:layout_marginRight="10dp"
-                />
-            <TextView 
-                android:layout_width="wrap_content"
-    			android:layout_height="wrap_content"
-    			android:text="遂宁"
-    			android:textColor="@color/black"
-    			android:textSize="15sp"
-    			android:layout_marginRight="10dp"
-                />
-            <TextView 
-                android:layout_width="wrap_content"
-    			android:layout_height="wrap_content"
-    			android:text="巴中"
-    			android:textColor="@color/black"
-    			android:textSize="15sp"
-    			android:layout_marginRight="10dp"
-                />
-            <TextView 
-                android:layout_width="wrap_content"
-    			android:layout_height="wrap_content"
-    			android:text="重庆"
-    			android:textColor="@color/black"
-    			android:textSize="15sp"
-    			android:layout_marginRight="10dp"
-                />
             
         </LinearLayout>
     </HorizontalScrollView>

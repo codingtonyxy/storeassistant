@@ -14,8 +14,6 @@ public class FragmentPcenter extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.fragment_pcenter, container, false);
-		TextView textView = (TextView)view.findViewById(R.id.textView_fragment_pcenter);
-		textView.setText("FragmentPcenter");
 		return view;
 	}
 	

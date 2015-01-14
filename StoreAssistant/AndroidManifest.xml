@@ -20,6 +20,7 @@
         android:anyDensity="true"/>
 
     <application
+        android:name="com.storeassistant.appInfo.MyApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
@@ -65,14 +66,15 @@
             android:screenOrientation="portrait"
              />
         
+        
         <activity
-            android:name="com.storeassistant.activity.user.UserInfoActivity"
+            android:name="com.storeassistant.activity.mail.MailActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
              />
         
         <activity
-            android:name="com.storeassistant.activity.mail.MailActivity"
+            android:name="com.storeassistant.activity.AddMarketActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
              />

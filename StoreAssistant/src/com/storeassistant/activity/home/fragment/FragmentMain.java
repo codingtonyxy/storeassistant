@@ -11,14 +11,15 @@ import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.webkit.WebView.FindListener;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
 import com.storeassistant.R;
 import com.storeassistant.activity.ChooseMarketActivity;
 import com.storeassistant.activity.home.MainActivity;
 import com.storeassistant.activity.mail.MailActivity;
-import com.storeassistant.activity.user.UserInfoActivity;
 import com.storeassistant.appInfo.MyConstants;
 import com.storeassistant.component.ViewPagerComponent;
 
@@ -27,6 +28,9 @@ public class FragmentMain extends Fragment {
 	private LinearLayout scrollPointContainer;
 	private ViewPager viewPager;
 	private ViewPagerComponent vpc = null;
+	MainActivity mainActivity = null;
+	RadioButton btnPcenter = null;
+	
 
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -38,6 +42,8 @@ public class FragmentMain extends Fragment {
 		vpc = new ViewPagerComponent(MainActivity.imageList, viewPager, scrollPointContainer, true, true, true, 3000, 3000, true);
 		vpc.startPager();
 		
+		mainActivity = (MainActivity)getActivity();
+		
 		//更新市场名称
 		TextView nameTextView = (TextView)view.findViewById(R.id.market_name_fragment_main);
 		nameTextView.setText(MyConstants.MARKET_NAME);
@@ -47,8 +53,9 @@ public class FragmentMain extends Fragment {
 		containerUserInfo.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(getActivity(), UserInfoActivity.class);
-				startActivity(intent);
+				RadioButton btnPcenter = (RadioButton)mainActivity.findViewById(R.id.main_tab_cb_pcenter);
+				btnPcenter.setChecked(true);
+				mainActivity.showFragment(R.id.main_tab_cb_pcenter);
 			}
 		});
 		

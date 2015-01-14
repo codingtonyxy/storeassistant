@@ -4,8 +4,10 @@ import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -32,7 +34,7 @@ public class NetUtil {
 		return urlConnection;
 	}
 	
-	public static Map get(String url, HashMap<String, Object> param){
+	public static Map get(String url, Map<String, String> param){
 		System.out.println("url:"+url);
 		if(url == null || url.length() <= 0){
 			return new HashMap<String, Object>(0);
@@ -48,15 +50,19 @@ public class NetUtil {
 				}
 				urlSb.append(key);
 				urlSb.append("=");
-				Object value = param.get(key);
+				String value = param.get(key);
 				if(value != null){
+					try {
+						value = URLEncoder.encode(value, "utf-8");
+					} catch (UnsupportedEncodingException e) {
+						e.printStackTrace();
+					}
 					urlSb.append(value);
 				}
 				urlSb.append("&");
 			}
 			url = urlSb.toString();
 		}
-		
 		HttpURLConnection conn = getConnection(url);
 		if(conn == null){
 			return new HashMap<String, Object>(0);
@@ -77,7 +83,8 @@ public class NetUtil {
 			bos.flush();
 			byte[] data = baos.toByteArray();
 			String content = new String(data, "utf-8");
-			System.out.println("content:"+content);
+			System.out.println("================================");
+			System.out.println("server_content:"+content);
 			if(content == null || content.length() <= 0){
 				return new HashMap<String, Object>(0);
 			}

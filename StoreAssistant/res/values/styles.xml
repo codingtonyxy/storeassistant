@@ -23,7 +23,7 @@
 		<item name="android:layout_width">fill_parent</item> 
 		<item name="android:layout_height">56dp</item> 
 		<item name="android:button">@null</item> 
-		<item name="android:textColor">@color/select_btn_tab_main</item> 
+		<item name="android:textColor">@drawable/select_btn_tab_main2</item> 
 		<item name="android:layout_weight">1.0</item> 
 		<item name="android:paddingLeft">1dp</item> 
 		<item name="android:paddingRight">1dp</item> 

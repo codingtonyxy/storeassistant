@@ -23,7 +23,7 @@ public class TimerTask_toMainActivity extends TimerTask{
 	public void run() {
 		try {
 			StartActivity sa = (StartActivity)context;
-			if(sa.msg_showCount > 0){
+			if(sa.msg_showCount >= 0){
 				Message msg = sa.handler_toIndex.obtainMessage();
 				msg.what = sa.what_msg_showTimer;
 				sa.handler_toIndex.sendMessage(msg);

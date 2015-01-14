@@ -5,9 +5,15 @@
 	<color name="sunflower_yellow">#ffc20e</color>
 	<color name="yellow">#ffd400</color>
 	<color name="green">#45b97c</color>
+	<color name="red">#d71345</color>
+	<color name="white_milk">#d3d7d4</color>
+	
+	<color name="gray_1">#e1e1e1</color>
 	
     <color name="white">#FFFFFF</color>
     <color name="galy">#ff333333</color>
+    <color name="transparent_galy">#99333333</color>
+    <color name="transparent_yellow">#77ffd400</color>
     
     <color name="black">#000000</color>
     <color name="transparent">#00000000</color>

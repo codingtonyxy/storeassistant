@@ -12,20 +12,44 @@ public final class R {
         public static final int anim_home_rect_scale=0x7f040000;
     }
     public static final class attr {
+        /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int border_color=0x7f010001;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int border_width=0x7f010000;
     }
     public static final class color {
-        public static final int black=0x7f060005;
-        public static final int button_back_normal=0x7f06000b;
-        public static final int delay_to_index=0x7f060009;
-        public static final int galy=0x7f060004;
+        public static final int black=0x7f06000a;
+        public static final int button_back_normal=0x7f060010;
+        public static final int delay_to_index=0x7f06000e;
+        public static final int galy=0x7f060007;
+        public static final int gray_1=0x7f060005;
         public static final int green=0x7f060002;
-        public static final int photos_popup_menu_item_background=0x7f06000a;
-        public static final int select_btn_tab_main=0x7f06000c;
+        public static final int photos_popup_menu_item_background=0x7f06000f;
+        public static final int red=0x7f060003;
+        public static final int select_btn_tab_main=0x7f060011;
         public static final int sunflower_yellow=0x7f060000;
-        public static final int transparent=0x7f060006;
-        public static final int transparent_black=0x7f060008;
-        public static final int transparent_white=0x7f060007;
-        public static final int white=0x7f060003;
+        public static final int transparent=0x7f06000b;
+        public static final int transparent_black=0x7f06000d;
+        public static final int transparent_galy=0x7f060008;
+        public static final int transparent_white=0x7f06000c;
+        public static final int transparent_yellow=0x7f060009;
+        public static final int white=0x7f060006;
+        public static final int white_milk=0x7f060004;
         public static final int yellow=0x7f060001;
     }
     public static final class dimen {
@@ -39,173 +63,239 @@ public final class R {
         public static final int delay_to_index_size=0x7f070000;
     }
     public static final class drawable {
-        public static final int arrow_down=0x7f020000;
-        public static final int arrow_down2=0x7f020001;
-        public static final int arrow_down_bold=0x7f020002;
-        public static final int arrow_down_home=0x7f020003;
-        public static final int arrow_up_bold=0x7f020004;
-        public static final int bar_searchbg=0x7f020005;
-        public static final int barcolor_exp=0x7f020006;
-        public static final int barcolor_gold=0x7f020007;
-        public static final int bg_back=0x7f020008;
-        public static final int bg_checkbox_menus=0x7f020009;
-        public static final int bg_market_detail=0x7f02000a;
-        public static final int bg_market_detail2=0x7f02000b;
-        public static final int bg_market_detail3=0x7f02000c;
-        public static final int bg_search_input=0x7f02000d;
-        public static final int bottom_bg=0x7f02000e;
-        public static final int btn_title_back=0x7f02000f;
-        public static final int btn_title_back_pressed=0x7f020010;
-        public static final int btn_titlebar1=0x7f020011;
-        public static final int btn_titlebar_current=0x7f020012;
-        public static final int button_back_normal=0x7f020013;
-        public static final int cdgjsmc=0x7f020014;
-        public static final int cdhhcsc=0x7f020015;
-        public static final int drawer_shadow=0x7f020016;
-        public static final int gray_default=0x7f02004d;
-        public static final int head=0x7f020017;
-        public static final int home_bottom_banner=0x7f020018;
-        public static final int home_page_ll_bg=0x7f020019;
-        public static final int ic_drawer=0x7f02001a;
-        public static final int ic_focus=0x7f02001b;
-        public static final int ic_focus_select=0x7f02001c;
-        public static final int ic_launcher=0x7f02001d;
-        public static final int ic_pulltorefresh_arrow=0x7f02001e;
-        public static final int icon=0x7f02001f;
-        public static final int icon_search=0x7f020020;
-        public static final int icon_search_nor=0x7f020021;
-        public static final int icon_search_press=0x7f020022;
-        public static final int mail_off=0x7f020023;
-        public static final int mail_on=0x7f020024;
-        public static final int market_icon_arrow_bottom=0x7f020025;
-        public static final int message_icon=0x7f020026;
-        public static final int new_icon1=0x7f020027;
-        public static final int new_icon_left_top=0x7f020028;
-        public static final int new_icon_right=0x7f020029;
-        public static final int new_mail_icon=0x7f02002a;
-        public static final int pic_bea=0x7f02002b;
-        public static final int pic_bt=0x7f02002c;
-        public static final int pic_car=0x7f02002d;
-        public static final int pic_food=0x7f02002e;
-        public static final int pic_loading=0x7f02002f;
-        public static final int pic_paly=0x7f020030;
-        public static final int pic_pz=0x7f020031;
-        public static final int pic_shared=0x7f020032;
-        public static final int pic_shop=0x7f020033;
-        public static final int pic_version=0x7f020034;
-        public static final int pin=0x7f020035;
-        public static final int pull_to_refresh_header_background=0x7f020036;
-        public static final int search_location=0x7f020037;
-        public static final int selector_btn_search=0x7f020038;
-        public static final int shape_no_coner_1=0x7f020039;
-        public static final int shape_no_coner_10=0x7f02003a;
-        public static final int shape_no_coner_11=0x7f02003b;
-        public static final int shape_no_coner_12=0x7f02003c;
-        public static final int shape_no_coner_2=0x7f02003d;
-        public static final int shape_no_coner_3=0x7f02003e;
-        public static final int shape_no_coner_4=0x7f02003f;
-        public static final int shape_no_coner_5=0x7f020040;
-        public static final int shape_no_coner_6=0x7f020041;
-        public static final int shape_no_coner_7=0x7f020042;
-        public static final int shape_no_coner_8=0x7f020043;
-        public static final int shape_no_coner_9=0x7f020044;
-        public static final int tab_choose=0x7f020045;
-        public static final int tab_home=0x7f020046;
-        public static final int tab_nearby=0x7f020047;
-        public static final int tab_pcenter=0x7f020048;
-        public static final int tab_shop=0x7f020049;
-        public static final int title_search=0x7f02004a;
-        public static final int titlebar_bg_nor=0x7f02004b;
-        public static final int yellowsanjiao=0x7f02004c;
+        public static final int add_icon=0x7f020000;
+        public static final int arrow_about=0x7f020001;
+        public static final int arrow_down=0x7f020002;
+        public static final int arrow_down2=0x7f020003;
+        public static final int arrow_down_bold=0x7f020004;
+        public static final int arrow_down_home=0x7f020005;
+        public static final int arrow_up_bold=0x7f020006;
+        public static final int bar_searchbg=0x7f020007;
+        public static final int barcolor_exp=0x7f020008;
+        public static final int barcolor_gold=0x7f020009;
+        public static final int bg_back=0x7f02000a;
+        public static final int bg_checkbox_menus=0x7f02000b;
+        public static final int bg_head10=0x7f02000c;
+        public static final int bg_head11=0x7f02000d;
+        public static final int bg_head3=0x7f02000e;
+        public static final int bg_head6=0x7f02000f;
+        public static final int bg_head9=0x7f020010;
+        public static final int bg_market2=0x7f020011;
+        public static final int bg_market_detail=0x7f020012;
+        public static final int bg_market_detail2=0x7f020013;
+        public static final int bg_market_detail3=0x7f020014;
+        public static final int bg_num=0x7f020015;
+        public static final int bg_search_input=0x7f020016;
+        public static final int bg_search_input_1=0x7f020017;
+        public static final int bottom_bg=0x7f020018;
+        public static final int btn_add_icon_nor=0x7f020019;
+        public static final int btn_add_icon_sel=0x7f02001a;
+        public static final int btn_add_market_nor=0x7f02001b;
+        public static final int btn_add_market_sel=0x7f02001c;
+        public static final int btn_seller_center_nor=0x7f02001d;
+        public static final int btn_seller_center_sel=0x7f02001e;
+        public static final int btn_title_back=0x7f02001f;
+        public static final int btn_title_back_pressed=0x7f020020;
+        public static final int btn_titlebar1=0x7f020021;
+        public static final int btn_titlebar_current=0x7f020022;
+        public static final int button_back_normal=0x7f020023;
+        public static final int cdgjsmc=0x7f020024;
+        public static final int cdhhcsc=0x7f020025;
+        public static final int defaule_nearby_icon_shopping=0x7f020026;
+        public static final int dingdan=0x7f020027;
+        public static final int dingwei=0x7f020028;
+        public static final int ditu=0x7f020029;
+        public static final int drawer_shadow=0x7f02002a;
+        public static final int fifth=0x7f02002b;
+        public static final int first=0x7f02002c;
+        public static final int fourthly=0x7f02002d;
+        public static final int gray_default=0x7f020080;
+        public static final int head=0x7f02002e;
+        public static final int home_bottom_banner=0x7f02002f;
+        public static final int home_page_ll_bg=0x7f020030;
+        public static final int ic_drawer=0x7f020031;
+        public static final int ic_focus=0x7f020032;
+        public static final int ic_focus_select=0x7f020033;
+        public static final int ic_launcher=0x7f020034;
+        public static final int ic_pulltorefresh_arrow=0x7f020035;
+        public static final int icon=0x7f020036;
+        public static final int icon_dingcan=0x7f020037;
+        public static final int icon_edit=0x7f020038;
+        public static final int icon_jiudian=0x7f020039;
+        public static final int icon_me=0x7f02003a;
+        public static final int icon_new_chat_dot=0x7f02003b;
+        public static final int icon_new_lable=0x7f02003c;
+        public static final int icon_search=0x7f02003d;
+        public static final int icon_search_nor=0x7f02003e;
+        public static final int icon_search_press=0x7f02003f;
+        public static final int mail_off=0x7f020040;
+        public static final int mail_on=0x7f020041;
+        public static final int market_icon_arrow_bottom=0x7f020042;
+        public static final int message_icon=0x7f020043;
+        public static final int msg_from_sel=0x7f020044;
+        public static final int mydingdan_nom=0x7f020045;
+        public static final int nearby_icon_busstation=0x7f020046;
+        public static final int nearby_icon_food=0x7f020047;
+        public static final int nearby_icon_hotle=0x7f020048;
+        public static final int nearby_icon_life=0x7f020049;
+        public static final int nearby_icon_more=0x7f02004a;
+        public static final int nearby_icon_people=0x7f02004b;
+        public static final int nearby_icon_tuoyun=0x7f02004c;
+        public static final int nearby_icon_yule=0x7f02004d;
+        public static final int new_icon1=0x7f02004e;
+        public static final int new_icon_left_top=0x7f02004f;
+        public static final int new_icon_right=0x7f020050;
+        public static final int new_mail_icon=0x7f020051;
+        public static final int ninth=0x7f020052;
+        public static final int pic_bea=0x7f020053;
+        public static final int pic_bt=0x7f020054;
+        public static final int pic_car=0x7f020055;
+        public static final int pic_food=0x7f020056;
+        public static final int pic_loading=0x7f020057;
+        public static final int pic_paly=0x7f020058;
+        public static final int pic_pz=0x7f020059;
+        public static final int pic_shared=0x7f02005a;
+        public static final int pic_shop=0x7f02005b;
+        public static final int pic_version=0x7f02005c;
+        public static final int pin=0x7f02005d;
+        public static final int pull_to_refresh_header_background=0x7f02005e;
+        public static final int say_icon=0x7f02005f;
+        public static final int search_location=0x7f020060;
+        public static final int second=0x7f020061;
+        public static final int select_btn_tab_main2=0x7f020062;
+        public static final int selector_btn_add_market=0x7f020063;
+        public static final int selector_btn_commit_add_market=0x7f020064;
+        public static final int selector_btn_search=0x7f020065;
+        public static final int selector_btn_seller_center=0x7f020066;
+        public static final int seventh=0x7f020067;
+        public static final int shape_no_coner_1=0x7f020068;
+        public static final int shape_no_coner_10=0x7f020069;
+        public static final int shape_no_coner_11=0x7f02006a;
+        public static final int shape_no_coner_12=0x7f02006b;
+        public static final int shape_no_coner_2=0x7f02006c;
+        public static final int shape_no_coner_3=0x7f02006d;
+        public static final int shape_no_coner_4=0x7f02006e;
+        public static final int shape_no_coner_5=0x7f02006f;
+        public static final int shape_no_coner_6=0x7f020070;
+        public static final int shape_no_coner_7=0x7f020071;
+        public static final int shape_no_coner_8=0x7f020072;
+        public static final int shape_no_coner_9=0x7f020073;
+        public static final int sixth=0x7f020074;
+        public static final int tab_choose=0x7f020075;
+        public static final int tab_home=0x7f020076;
+        public static final int tab_nearby=0x7f020077;
+        public static final int tab_pcenter=0x7f020078;
+        public static final int tab_shop=0x7f020079;
+        public static final int thirdly=0x7f02007a;
+        public static final int title_search=0x7f02007b;
+        public static final int titlebar_bg_nor=0x7f02007c;
+        public static final int userinfo_collect_nor=0x7f02007d;
+        public static final int userinfo_luntan_nor=0x7f02007e;
+        public static final int yellowsanjiao=0x7f02007f;
     }
     public static final class id {
-        public static final int LL0=0x7f090023;
-        public static final int LL1=0x7f09001f;
-        public static final int LL2=0x7f090027;
-        public static final int LL3=0x7f09002b;
-        public static final int back_choose_market=0x7f090000;
-        public static final int back_image_car_break_rules=0x7f090001;
-        public static final int back_title_car_break_rules=0x7f090002;
-        public static final int back_to_choose_market=0x7f090016;
+        public static final int LL0=0x7f09002a;
+        public static final int LL1=0x7f090026;
+        public static final int LL2=0x7f09002e;
+        public static final int LL3=0x7f090032;
+        public static final int back_choose_market=0x7f090001;
+        public static final int back_image_car_break_rules=0x7f090002;
+        public static final int back_title_car_break_rules=0x7f090003;
+        public static final int back_to_choose_market=0x7f09001d;
+        public static final int btn_add_market=0x7f090009;
         public static final int container_car_break_rules=0x01010000;
-        public static final int container_fragment=0x7f090007;
+        public static final int container_fragment=0x7f09000e;
         public static final int container_main=0x01010001;
-        public static final int container_user_info_fragment_main=0x7f090015;
-        public static final int desc_market=0x7f09003c;
-        public static final int edit_text_search_box=0x7f090010;
-        public static final int home_bottom_banner=0x7f09002f;
-        public static final int image_market=0x7f09003a;
-        public static final int imageview_head_icon_fragment_main=0x7f090012;
-        public static final int img_start=0x7f090005;
-        public static final int inflater_item_market=0x7f090038;
-        public static final int layout3=0x7f09001b;
-        public static final int listview_market=0x7f09003e;
-        public static final int mail_fragment_main=0x7f090018;
-        public static final int main_layout_bottom=0x7f090009;
-        public static final int main_tab_cb_home=0x7f09000b;
-        public static final int main_tab_cb_nearby=0x7f09000c;
-        public static final int main_tab_cb_pcenter=0x7f09000e;
-        public static final int main_tab_cb_shop=0x7f09000d;
-        public static final int main_viewpager=0x7f09001d;
-        public static final int market_container=0x7f090003;
-        public static final int market_list_container=0x7f090004;
-        public static final int market_name=0x7f090039;
-        public static final int market_name_fragment_main=0x7f090017;
-        public static final int market_place=0x7f09003d;
-        public static final int new_mail_textview_fragment_main=0x7f090019;
-        public static final int progressbar_exp_fragment_main=0x7f090013;
-        public static final int progressbar_gold_fragment_main=0x7f090014;
-        public static final int pull_to_refresh_header=0x7f09003f;
-        public static final int pull_to_refresh_image=0x7f090041;
-        public static final int pull_to_refresh_progress=0x7f090040;
-        public static final int pull_to_refresh_text=0x7f090042;
-        public static final int pull_to_refresh_updated_at=0x7f090043;
-        public static final int radio_group=0x7f09000a;
-        public static final int scorllview_marketdetail=0x7f09003b;
-        public static final int scrollView_tools=0x7f09001a;
-        public static final int scroll_point_container=0x7f09001e;
-        public static final int scroll_point_container_nearby=0x7f090033;
-        public static final int search_box=0x7f09000f;
-        public static final int search_btn=0x7f090011;
-        public static final int tab_home_bt1=0x7f090020;
-        public static final int tab_home_bt10=0x7f09002c;
-        public static final int tab_home_bt11=0x7f09002d;
-        public static final int tab_home_bt12=0x7f09002e;
-        public static final int tab_home_bt2=0x7f090021;
-        public static final int tab_home_bt3=0x7f090022;
-        public static final int tab_home_bt4=0x7f090024;
-        public static final int tab_home_bt5=0x7f090025;
-        public static final int tab_home_bt6=0x7f090026;
-        public static final int tab_home_bt7=0x7f090028;
-        public static final int tab_home_bt8=0x7f090029;
-        public static final int tab_home_bt9=0x7f09002a;
-        public static final int tabhost=0x7f090008;
-        public static final int textView_fragment_mall=0x7f090030;
-        public static final int textView_fragment_nearby=0x7f090034;
-        public static final int textView_fragment_pcenter=0x7f090037;
-        public static final int textView_showTimerToIndex=0x7f090006;
-        public static final int viewpager_common=0x7f090035;
-        public static final int viewpager_container=0x7f09001c;
-        public static final int viewpager_container_fragment_pcenter=0x7f090036;
-        public static final int viewpager_container_nearby=0x7f090031;
-        public static final int viewpager_nearby=0x7f090032;
+        public static final int container_market_city_list=0x7f09000a;
+        public static final int container_market_name=0x7f090047;
+        public static final int container_market_type_list=0x7f09004a;
+        public static final int container_user_info_fragment_main=0x7f090019;
+        public static final int desc_market=0x7f090039;
+        public static final int edit_text_search_box=0x7f090017;
+        public static final int home_bottom_banner=0x7f090036;
+        public static final int image_market=0x7f090037;
+        public static final int imageview_head_icon_fragment_main=0x7f09001a;
+        public static final int img_start=0x7f09000c;
+        public static final int inflater_item_market=0x7f090046;
+        public static final int input_add_market_address=0x7f090007;
+        public static final int input_add_market_city=0x7f090004;
+        public static final int input_add_market_name=0x7f090006;
+        public static final int input_add_market_open_time=0x7f090008;
+        public static final int input_add_market_type=0x7f090005;
+        public static final int layout3=0x7f090022;
+        public static final int listview_market=0x7f09004b;
+        public static final int mail_fragment_main=0x7f09001f;
+        public static final int main_layout_bottom=0x7f090010;
+        public static final int main_tab_cb_home=0x7f090012;
+        public static final int main_tab_cb_nearby=0x7f090013;
+        public static final int main_tab_cb_pcenter=0x7f090015;
+        public static final int main_tab_cb_shop=0x7f090014;
+        public static final int main_viewpager=0x7f090024;
+        public static final int market_address=0x7f09003a;
+        public static final int market_container=0x7f090000;
+        public static final int market_list_container=0x7f09000b;
+        public static final int market_name=0x7f090048;
+        public static final int market_name_fragment_main=0x7f09001e;
+        public static final int market_open_time=0x7f09003b;
+        public static final int market_place=0x7f090049;
+        public static final int new_mail_textview_fragment_main=0x7f090020;
+        public static final int pb_exp=0x7f09003f;
+        public static final int pb_gold=0x7f090042;
+        public static final int progressbar_exp_fragment_main=0x7f09001b;
+        public static final int progressbar_gold_fragment_main=0x7f09001c;
+        public static final int pull_to_refresh_header=0x7f09004c;
+        public static final int pull_to_refresh_image=0x7f09004e;
+        public static final int pull_to_refresh_progress=0x7f09004d;
+        public static final int pull_to_refresh_text=0x7f09004f;
+        public static final int pull_to_refresh_updated_at=0x7f090050;
+        public static final int radio_group=0x7f090011;
+        public static final int scorllview_marketdetail=0x7f090038;
+        public static final int scrollView_tools=0x7f090021;
+        public static final int scroll_point_container=0x7f090025;
+        public static final int search_box=0x7f090016;
+        public static final int search_btn=0x7f090018;
+        public static final int tab_home_bt1=0x7f090027;
+        public static final int tab_home_bt10=0x7f090033;
+        public static final int tab_home_bt11=0x7f090034;
+        public static final int tab_home_bt12=0x7f090035;
+        public static final int tab_home_bt2=0x7f090028;
+        public static final int tab_home_bt3=0x7f090029;
+        public static final int tab_home_bt4=0x7f09002b;
+        public static final int tab_home_bt5=0x7f09002c;
+        public static final int tab_home_bt6=0x7f09002d;
+        public static final int tab_home_bt7=0x7f09002f;
+        public static final int tab_home_bt8=0x7f090030;
+        public static final int tab_home_bt9=0x7f090031;
+        public static final int tabhost=0x7f09000f;
+        public static final int textView_showTimerToIndex=0x7f09000d;
+        public static final int tv_exp_rate=0x7f090040;
+        public static final int tv_gold_rate=0x7f090043;
+        public static final int tv_home_name=0x7f090045;
+        public static final int tv_level=0x7f090041;
+        public static final int tv_nick=0x7f09003d;
+        public static final int tv_sign=0x7f09003e;
+        public static final int tv_title=0x7f090044;
+        public static final int viewpager_common=0x7f09003c;
+        public static final int viewpager_container=0x7f090023;
     }
     public static final class layout {
-        public static final int activity_car_break_rules=0x7f030000;
-        public static final int activity_choose_market=0x7f030001;
-        public static final int activity_launcher=0x7f030002;
-        public static final int activity_main=0x7f030003;
-        public static final int activity_search_result=0x7f030004;
-        public static final int activity_user_info=0x7f030005;
+        public static final int activity_add_market=0x7f030000;
+        public static final int activity_car_break_rules=0x7f030001;
+        public static final int activity_choose_market=0x7f030002;
+        public static final int activity_launcher=0x7f030003;
+        public static final int activity_main=0x7f030004;
+        public static final int activity_search_result=0x7f030005;
         public static final int fragment_main=0x7f030006;
         public static final int fragment_mall=0x7f030007;
         public static final int fragment_nearby=0x7f030008;
         public static final int fragment_pageview=0x7f030009;
         public static final int fragment_pcenter=0x7f03000a;
         public static final int item_market=0x7f03000b;
-        public static final int mail=0x7f03000c;
-        public static final int market_list_container=0x7f03000d;
-        public static final int pull_to_refresh_header=0x7f03000e;
+        public static final int item_market_city=0x7f03000c;
+        public static final int item_market_type=0x7f03000d;
+        public static final int mail=0x7f03000e;
+        public static final int market_list_container=0x7f03000f;
+        public static final int pull_to_refresh_header=0x7f030010;
     }
     public static final class string {
         public static final int action_example=0x7f05000a;
@@ -252,4 +342,52 @@ public final class R {
         public static final int MMTabButton=0x7f080002;
         public static final int Theme_Holo=0x7f080003;
     }
+    public static final class styleable {
+        /** Attributes that can be used with a CircleImageView.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #CircleImageView_border_color com.storeassistant:border_color}</code></td><td></td></tr>
+           <tr><td><code>{@link #CircleImageView_border_width com.storeassistant:border_width}</code></td><td></td></tr>
+           </table>
+           @see #CircleImageView_border_color
+           @see #CircleImageView_border_width
+         */
+        public static final int[] CircleImageView = {
+            0x7f010000, 0x7f010001
+        };
+        /**
+          <p>This symbol is the offset where the {@link com.storeassistant.R.attr#border_color}
+          attribute's value can be found in the {@link #CircleImageView} array.
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.storeassistant:border_color
+        */
+        public static final int CircleImageView_border_color = 1;
+        /**
+          <p>This symbol is the offset where the {@link com.storeassistant.R.attr#border_width}
+          attribute's value can be found in the {@link #CircleImageView} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.storeassistant:border_width
+        */
+        public static final int CircleImageView_border_width = 0;
+    };
 }
